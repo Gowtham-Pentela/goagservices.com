@@ -74,9 +74,16 @@ const FORBIDDEN = [
   { pattern: /\bfull\s+warranty/i, description: '"full warranty" phrase' },
   { pattern: /\bpeace\s+of\s+mind\b/i, description: '"peace of mind" filler phrase' },
 
-  // Regulatory overclaims
+  // Regulatory — DGCA removed by owner decision; block all mentions
+  // claims.ts excluded because it keeps the placeholder record with status "placeholder"
+  {
+    pattern: /DGCA/i,
+    description: 'DGCA mention removed by owner — re-add only with certificate number',
+    fileIncludes: [".ts", ".tsx", ".js", ".jsx", ".html"],
+    fileExcludes: ["claims.ts", "check-claims.mjs"],
+  },
   { pattern: /type\s+certif/i, description: '"type certification" claim' },
-  { pattern: /DGCA\s+(compliant|certified\s+operations|certified\s+engineering)/i, description: 'Forbidden DGCA phrase (use plain "DGCA certified" only)' },
+  { pattern: /\bcompliant\b/i, description: '"compliant" regulatory overclaim' },
 
   // Chemical claim (never verified)
   {
@@ -112,6 +119,12 @@ function checkFile(filePath) {
     if (rule.fileIncludes) {
       const matchesFilter = rule.fileIncludes.some((ext) => filePath.endsWith(ext));
       if (!matchesFilter) continue;
+    }
+
+    // Path exclusion filter
+    if (rule.fileExcludes) {
+      const isExcluded = rule.fileExcludes.some((excl) => filePath.includes(excl));
+      if (isExcluded) continue;
     }
 
     lines.forEach((line, idx) => {

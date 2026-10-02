@@ -44,6 +44,6 @@ Please mark **Verified (Y/N)** and note the corrected test-verified number if di
 - **Warranty:** `Up to 2 Years Warranty` (All models)
 - **Obstacle Sensing:** `India's First 360° Obstacle-Sensing Smart Drone` (Verified)
 - **Manufacturing:** `80% Made in India` & `100% In-House Manufacturing`
-- **DGCA Certification:** `DGCA certified` (Company level; model certificate numbers pending P1)
+- **~~DGCA Certification~~:** _Removed by owner. Re-add only with certificate number and covered models._
 - **Operational Costs:** `₹20 / Acre` Battery Cost & `₹50 / Acre` Maintenance Cost (with footnote: "Typical values, vary with crop and conditions.")
 - **Response Promise:** `Within 24 hours`

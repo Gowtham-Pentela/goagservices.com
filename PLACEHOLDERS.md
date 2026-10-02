@@ -14,4 +14,3 @@ Per Owner Decision **A20**, no stock photos or AI-rendered pseudo-photos are use
 | `photo-ind-safety` | Applications / Carousel | Emergency response / surveillance sortie | 800x600 (4:3) | `placeholder` | Real security/safety sortie photo |
 | `photo-ind-custom` | Applications / Carousel | Custom payload integration testbed | 800x600 (4:3) | `placeholder` | Real testbed photo |
 | `photo-team-leadership` | About Page | Leadership team headshots | 400x500 (4:5) | `placeholder` | Founder & executive headshots |
-| `doc-dgca-certificate` | Support / About | DGCA Type Certification document scan | PDF / Image | `pending P1` | Awaiting certificate number & scan |

@@ -16,7 +16,7 @@ const DEFAULT_TITLE = "GoAG Services — Engineered in India. Built for Real Mis
 const DEFAULT_DESC =
   "GoAG Services Private Limited — Indian UAV Manufacturer of Agricultural Drones, Multi-Payload Systems, and Custom Unmanned Solutions engineered in Hyderabad. 80% Made in India with up to 2 years warranty.";
 const DEFAULT_KEYWORDS =
-  "agricultural drone manufacturer India, precision agriculture drone, crop spraying drone Hyderabad, Agrown-10X, Agrown-10X Super Compact, Graydon multi-payload drone, Made in India drone, DGCA certified drone Hyderabad";
+  "agricultural drone manufacturer India, precision agriculture drone, crop spraying drone Hyderabad, Agrown-10X, Agrown-10X Super Compact, Graydon multi-payload drone, Made in India drone, 80% Made in India drone Hyderabad";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "";
 const IS_NOINDEX = import.meta.env.VITE_NOINDEX === "true";

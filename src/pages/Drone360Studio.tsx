@@ -42,7 +42,7 @@ export default function Drone360Studio() {
                 360° INTERACTIVE <span className="text-gradient-green">DRONE STUDIO</span>
               </h1>
               <p className="text-white/70 text-base sm:text-lg max-w-2xl mt-3 leading-relaxed">
-                Examine every millimeter of our DGCA certified drone platforms from every angle.
+                Examine every millimeter of our precision-engineered drone platforms from every angle.
                 Drag to rotate 360°, inspect dual-arm nozzles, modular carbon-fiber frames, and high-velocity granular spreaders.
               </p>
             </div>

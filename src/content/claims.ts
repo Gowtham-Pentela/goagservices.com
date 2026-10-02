@@ -34,8 +34,8 @@ export const claims: Record<string, Claim> = {
     id: "dgca-certified",
     text: "DGCA certified",
     value: "DGCA certified",
-    status: "verified",
-    note: "Company is DGCA certified. Certificate number pending (P1). Plain phrase only.",
+    status: "placeholder",
+    note: "Removed by owner. Re-add only with certificate number and covered models.",
   },
   "80-percent-made-in-india": {
     id: "80-percent-made-in-india",

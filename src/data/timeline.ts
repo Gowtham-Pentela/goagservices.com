@@ -19,9 +19,9 @@ export const timelineMilestones = [
   },
   {
     year: "2021",
-    title: "DGCA certified",
+    title: "100% In-House Manufacturing",
     description:
-      "DGCA certified manufacturer.",
+      "Full in-house manufacturing capability established — design, CNC machining, assembly, and QC under one roof.",
   },
   {
     year: "2022",

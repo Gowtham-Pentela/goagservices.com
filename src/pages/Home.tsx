@@ -238,7 +238,7 @@ const homeFaqs = [
     pointers: [
       "Warranty: Up to 2 years manufacturer warranty",
       "Hyderabad Hub: Direct manufacturer supply with local spare inventory",
-      "DGCA certified with full in-house field support"
+      "100% in-house manufacturing with full field support"
     ],
   },
 ];
@@ -317,7 +317,7 @@ export default function Home() {
               "India's First 360° Obstacle-Sensing",
               "₹20 / Acre Running Cost*",
               "Up to 2 Years Warranty",
-              "DGCA certified"
+              "100% In-House Manufacturing"
             ].map((pt) => (
               <span
                 key={pt}
@@ -618,7 +618,7 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between">
                   <span>STANDARD:</span>
-                  <span className="text-[#22c55e]">DGCA certified</span>
+                  <span className="text-[#22c55e]">80% Made in India</span>
                 </div>
               </div>
             </div>

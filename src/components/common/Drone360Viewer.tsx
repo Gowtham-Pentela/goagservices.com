@@ -703,7 +703,7 @@ export default function Drone360Viewer({
                   </span>
                   <span className="flex items-center gap-1.5 text-white/80">
                     <Zap className="w-4 h-4 text-[#f59e0b]" />
-                    DGCA certified
+                    Up to 2 Years Warranty
                   </span>
                 </div>
                 <div className="text-white/40 text-[11px]">

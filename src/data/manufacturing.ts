@@ -83,7 +83,7 @@ export const manufacturingStages: ManufacturingStage[] = [
     caption: "Secure Packaging & Global Delivery",
     pointers: [
       "Shockproof heavy-duty flight case packaging",
-      "DGCA pilot handbook & maintenance logs",
+      "Pilot handbook & maintenance logs",
       "Direct Hyderabad factory-to-farm dispatch"
     ],
   },
