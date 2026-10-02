@@ -84,61 +84,54 @@ export const claims: Record<string, Claim> = {
     status: "verified",
   },
 
-  // Needs-proof specifications (awaiting owner confirmation in SPECS_REVIEW.md)
-  "agrown-10x-flight-time": {
-    id: "agrown-10x-flight-time",
-    text: "18 - 22 Mins",
-    value: "18 - 22 Mins",
+  // Timeline claims (awaiting owner verification)
+  "timeline-2018-year": { id: "timeline-2018-year", text: "2018", value: "2018", status: "needs-proof" },
+  "timeline-2018-title": { id: "timeline-2018-title", text: "The Idea", status: "needs-proof" },
+  "timeline-2018-desc": { id: "timeline-2018-desc", text: "Founded by engineers with a vision to build India's most capable agricultural drone from the ground up.", status: "needs-proof" },
+
+  "timeline-2019-year": { id: "timeline-2019-year", text: "2019", value: "2019", status: "needs-proof" },
+  "timeline-2019-title": { id: "timeline-2019-title", text: "First Prototype", status: "needs-proof" },
+  "timeline-2019-desc": { id: "timeline-2019-desc", text: "First functional prototype completed after 14 months of R&D. First successful autonomous field spray mission.", status: "needs-proof" },
+
+  "timeline-2020-year": { id: "timeline-2020-year", text: "2020", value: "2020", status: "needs-proof" },
+  "timeline-2020-title": { id: "timeline-2020-title", text: "First Production", status: "needs-proof" },
+  "timeline-2020-desc": { id: "timeline-2020-desc", text: "Manufacturing facility established. First production batch of GoAG drones delivered to farming cooperatives.", status: "needs-proof" },
+
+  "timeline-2021-year": { id: "timeline-2021-year", text: "2021", value: "2021", status: "needs-proof" },
+  "timeline-2021-title": { id: "timeline-2021-title", text: "R&D & Facility Expansion", status: "needs-proof" },
+  "timeline-2021-desc": { id: "timeline-2021-desc", text: "Established dedicated assembly facility and indigenous testing capabilities.", status: "needs-proof" },
+
+  "timeline-2022-year": { id: "timeline-2022-year", text: "2022", value: "2022", status: "needs-proof" },
+  "timeline-2022-title": { id: "timeline-2022-title", text: "Scaled Nationwide", status: "needs-proof" },
+  "timeline-2022-desc": { id: "timeline-2022-desc", text: "Expanded to 20+ states. Dealer network of 150+ partners. 5,000+ successful field missions completed.", status: "needs-proof" },
+
+  "timeline-2024-year": { id: "timeline-2024-year", text: "2024", value: "2024", status: "needs-proof" },
+  "timeline-2024-title": { id: "timeline-2024-title", text: "Global Vision", status: "needs-proof" },
+  "timeline-2024-desc": { id: "timeline-2024-desc", text: "International expansion. Advanced product line with surveillance, mapping, and logistics platforms.", status: "needs-proof" },
+
+  "company-value-transparent-data-desc": {
+    id: "company-value-transparent-data-desc",
+    text: "Every specification on this site is verified flight-test data. We don't publish what we can't prove.",
     status: "needs-proof",
   },
-  "agrown-10x-spray-width": {
-    id: "agrown-10x-spray-width",
-    text: "4 - 6 Metres",
-    value: "4 - 6 Metres",
-    status: "needs-proof",
-  },
-  "agrown-10x-ip-rating": {
-    id: "agrown-10x-ip-rating",
-    text: "IP67 Washable",
-    value: "IP67 Washable",
-    status: "needs-proof",
-  },
-  "agrown-10x-super-compact-flight-time": {
-    id: "agrown-10x-super-compact-flight-time",
-    text: "15 - 18 Mins",
-    value: "15 - 18 Mins",
-    status: "needs-proof",
-  },
-  "agrown-10x-super-compact-spray-width": {
-    id: "agrown-10x-super-compact-spray-width",
-    text: "3 - 4.5 Metres",
-    value: "3 - 4.5 Metres",
-    status: "needs-proof",
-  },
-  "agrown-10x-super-compact-ip-rating": {
-    id: "agrown-10x-super-compact-ip-rating",
-    text: "IP65 Weatherproof",
-    value: "IP65 Weatherproof",
-    status: "needs-proof",
-  },
-  "graydon-endurance": {
-    id: "graydon-endurance",
-    text: "Up to 35 Mins (Empty)",
-    value: "Up to 35 Mins (Empty)",
-    status: "needs-proof",
-  },
-  "graydon-payload": {
-    id: "graydon-payload",
-    text: "25 - 30 Kg",
-    value: "25 - 30 Kg",
-    status: "needs-proof",
-  },
-  "graydon-wind-resistance": {
-    id: "graydon-wind-resistance",
-    text: "Up to 12 m/s",
-    value: "Up to 12 m/s",
-    status: "needs-proof",
-  },
+
+  // Outreach & State Data claims (awaiting owner verification)
+  "outreach-stat-states": { id: "outreach-stat-states", text: "20+ States", value: "20+", status: "needs-proof" },
+  "outreach-stat-dealers": { id: "outreach-stat-dealers", text: "150+ Dealers", value: "150+", status: "needs-proof" },
+  "outreach-stat-drones": { id: "outreach-stat-drones", text: "5,000+ Drones Deployed", value: "5,000+", status: "needs-proof" },
+  "outreach-stat-training-centers": { id: "outreach-stat-training-centers", text: "200+ Training Centers", value: "200+", status: "needs-proof" },
+  "outreach-drones-tile": { id: "outreach-drones-tile", text: "5,000+ DRONES DEPLOYED FROM HYD", value: "5,000+", status: "needs-proof" },
+  "outreach-state-data": { id: "outreach-state-data", text: "Regional Hub State Metrics", status: "needs-proof" },
+  "outreach-certified-pilots": { id: "outreach-certified-pilots", text: "certified pilots", status: "needs-proof" },
+
+  // Configurator claims (awaiting owner verification)
+  "configurator-base-price": { id: "configurator-base-price", text: "₹4,85,000", value: "485000", status: "needs-proof" },
+  "configurator-price-adders": { id: "configurator-price-adders", text: "Configurator Option Pricing", status: "needs-proof" },
+  "configurator-spec-impacts": { id: "configurator-spec-impacts", text: "Payload, Flight Time & Range Specs", status: "needs-proof" },
+
+  // Manufacturing & About claims (awaiting owner verification)
+  "manufacturing-global-delivery": { id: "manufacturing-global-delivery", text: "Global Delivery", status: "needs-proof" },
+  "about-certified-pilots": { id: "about-certified-pilots", text: "Certified Flight Test Pilots", status: "needs-proof" },
 };
 
 export interface ResolvedClaim extends Claim {
@@ -148,11 +141,18 @@ export interface ResolvedClaim extends Claim {
   badge?: string;
 }
 
+export function isDevMode(): boolean {
+  if (typeof window !== "undefined" && new URLSearchParams(window.location.search).has("dev")) {
+    return true;
+  }
+  return Boolean(import.meta.env?.DEV);
+}
+
 export function getClaim(id: string): ResolvedClaim | null {
   const claim = claims[id];
   if (!claim) return null;
 
-  const isDev = Boolean(import.meta.env?.DEV);
+  const isDev = isDevMode();
 
   if (claim.status === "verified") {
     return {
@@ -163,7 +163,7 @@ export function getClaim(id: string): ResolvedClaim | null {
     };
   }
 
-  // In development, show needs-proof and placeholder with tag
+  // In development (or ?dev=1), show needs-proof and placeholder with tag
   if (isDev) {
     const tag = claim.status === "needs-proof" ? "[NEEDS PROOF]" : "[PLACEHOLDER]";
     return {
@@ -188,3 +188,12 @@ export function getClaimValue(id: string, fallback: string = ""): string {
   const claim = getClaim(id);
   return claim && claim.displayValue ? claim.displayValue : fallback;
 }
+
+export function isClaimVerified(id: string): boolean {
+  return claims[id]?.status === "verified";
+}
+
+export function isClaimVisible(id: string): boolean {
+  return Boolean(getClaim(id)?.isVisible);
+}
+

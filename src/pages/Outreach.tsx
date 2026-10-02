@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { Navigation, ShieldCheck, Truck, Users, ChevronRight, Check } from "lucide-react";
 import SEO from "../components/common/SEO";
+import UnderReviewPanel from "../components/common/UnderReviewPanel";
+import { getClaimText, isDevMode } from "../content/claims";
 
 // State data with Hyderabad HQ as central hub
 const hyderabadHQ = { id: "HYD", name: "Hyderabad Headquarters", cx: 245, cy: 325, isHQ: true };
@@ -159,6 +161,7 @@ function SatelliteIndiaMap({ selectedNode, onSelectNode }: { selectedNode: strin
 export default function Outreach() {
   const [selectedNodeId, setSelectedNodeId] = useState<string>("MH");
   const selectedNode = supplyNodes.find((s) => s.id === selectedNodeId) || supplyNodes[0];
+  const isDev = isDevMode();
 
   return (
     <div className="min-h-screen" style={{ background: "#070c08" }}>
@@ -199,7 +202,7 @@ export default function Outreach() {
               • 48-Hour Pan-India Spare Dispatch
             </span>
             <span className="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90">
-              • 150+ Authorized Service Centers
+              • Authorized Regional Service Network
             </span>
           </div>
         </motion.div>
@@ -207,30 +210,36 @@ export default function Outreach() {
 
       {/* ── NATIONAL IMPACT METRICS STRIP ───────────────────────────────────── */}
       <section className="border-b border-white/10 bg-[#090f0b] py-14 px-6 lg:px-16">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { icon: Navigation, val: "20+ States", label: "ACTIVE SUPPLY COVERAGE" },
-            { icon: Truck, val: "5,000+", label: "DRONES DEPLOYED FROM HYD" },
-            { icon: Users, val: "150+", label: "AUTHORIZED REGIONAL DEALERS" },
-            { icon: ShieldCheck, val: "200+", label: "SKILLING & TRAINING CENTERS" },
-          ].map((item, i) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="p-7 border border-white/10 rounded-sm bg-[#0e1610] flex items-center gap-5 shadow-lg"
-            >
-              <div className="w-14 h-14 rounded-full border border-[#f59e0b]/40 bg-[#f59e0b]/10 flex items-center justify-center flex-shrink-0">
-                <item.icon className="w-6 h-6 text-[#fbbf24]" />
-              </div>
-              <div>
-                <div className="text-[24px] font-bold text-[#f3f4f6] font-mono leading-none mb-2">{item.val}</div>
-                <div className="text-label text-[#9ca3af] leading-tight">{item.label}</div>
-              </div>
-            </motion.div>
-          ))}
+        <div className="max-w-7xl mx-auto">
+          {!isDev ? (
+            <UnderReviewPanel message="Content under owner review for verified flight-test data." />
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { icon: Navigation, val: getClaimText("outreach-stat-states", "20+ States"), label: "ACTIVE SUPPLY COVERAGE" },
+                { icon: Truck, val: getClaimText("outreach-stat-drones", "5,000+"), label: "DRONES DEPLOYED FROM HYD" },
+                { icon: Users, val: getClaimText("outreach-stat-dealers", "150+"), label: "AUTHORIZED REGIONAL DEALERS" },
+                { icon: ShieldCheck, val: getClaimText("outreach-stat-training-centers", "200+"), label: "SKILLING & TRAINING CENTERS" },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-7 border border-white/10 rounded-sm bg-[#0e1610] flex items-center gap-5 shadow-lg"
+                >
+                  <div className="w-14 h-14 rounded-full border border-[#f59e0b]/40 bg-[#f59e0b]/10 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-6 h-6 text-[#fbbf24]" />
+                  </div>
+                  <div>
+                    <div className="text-[24px] font-bold text-[#f3f4f6] font-mono leading-none mb-2">{item.val}</div>
+                    <div className="text-label text-[#9ca3af] leading-tight">{item.label}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -315,22 +324,27 @@ export default function Outreach() {
               </div>
 
               {/* Hub Metrics */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="p-5 bg-[#070c08] border border-white/10 rounded-sm">
-                  <div className="text-[26px] font-bold text-[#f3f4f6] font-mono">{selectedNode.dronesDeployed}+</div>
-                  <div className="text-label-sm text-[#9ca3af] mt-1">UNITS SUPPLIED FROM HYD</div>
+              {!isDev ? (
+                <UnderReviewPanel message="Content under owner review for verified flight-test data." />
+              ) : (
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="p-5 bg-[#070c08] border border-white/10 rounded-sm">
+                    <div className="text-[26px] font-bold text-[#f3f4f6] font-mono">{selectedNode.dronesDeployed}+ [NEEDS PROOF]</div>
+                    <div className="text-label-sm text-[#9ca3af] mt-1">UNITS SUPPLIED FROM HYD</div>
+                  </div>
+                  <div className="p-5 bg-[#070c08] border border-white/10 rounded-sm">
+                    <div className="text-[26px] font-bold text-[#fbbf24] font-mono">{selectedNode.farmersReached.toLocaleString()}+ [NEEDS PROOF]</div>
+                    <div className="text-label-sm text-[#9ca3af] mt-1">ACRES COVERED</div>
+                  </div>
                 </div>
-                <div className="p-5 bg-[#070c08] border border-white/10 rounded-sm">
-                  <div className="text-[26px] font-bold text-[#fbbf24] font-mono">{selectedNode.farmersReached.toLocaleString()}+</div>
-                  <div className="text-label-sm text-[#9ca3af] mt-1">ACRES COVERED</div>
-                </div>
-              </div>
+              )}
 
               {/* Hub Description */}
               <p className="text-[16px] text-[#9ca3af] leading-relaxed">
-                Directly connected to Hyderabad HQ via express logistics. Equipped with spare parts inventory, certified pilots, and field maintenance engineers.
+                Directly connected to Hyderabad HQ via express logistics. Equipped with spare parts inventory, trained flight crew, and field maintenance engineers.
               </p>
             </div>
+
 
             {/* Become a Dealer Callout */}
             <div className="p-8 border border-white/10 rounded-sm bg-[#0e1610] shadow-xl">

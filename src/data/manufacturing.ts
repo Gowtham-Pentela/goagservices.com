@@ -80,7 +80,7 @@ export const manufacturingStages: ManufacturingStage[] = [
     subtitle: "Secure Packaging & Support",
     description: "Field-ready drones packaged with full documentation and pan-India SLA.",
     image: "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?w=800&q=80&fm=webp",
-    caption: "Secure Packaging & Global Delivery",
+    caption: "Secure Packaging & Pan-India Dispatch",
     pointers: [
       "Shockproof heavy-duty flight case packaging",
       "Pilot handbook & maintenance logs",

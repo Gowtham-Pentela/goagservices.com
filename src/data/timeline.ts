@@ -19,9 +19,9 @@ export const timelineMilestones = [
   },
   {
     year: "2021",
-    title: "100% In-House Manufacturing",
+    title: "R&D & Facility Expansion",
     description:
-      "Full in-house manufacturing capability established — design, CNC machining, assembly, and QC under one roof.",
+      "Established dedicated assembly facility and indigenous testing capabilities.",
   },
   {
     year: "2022",
@@ -56,6 +56,6 @@ export const companyValues = [
   {
     title: "Transparent Data",
     description:
-      "Every specification on this site is verified flight-test data. We don't publish what we can't prove.",
+      "Flight-test metrics and specifications under owner review for complete data verification.",
   },
 ];

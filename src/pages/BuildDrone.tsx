@@ -4,10 +4,14 @@ import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, Check, Play, ArrowRight, X } from "lucide-react";
 import { configuratorSections, basePrice, allPayloadOptions, IndustryType } from "../data/configurator";
 import SEO from "../components/common/SEO";
+import UnderReviewPanel from "../components/common/UnderReviewPanel";
+import { isDevMode } from "../content/claims";
 import { assetUrl } from "../utils/assets";
 
 export default function BuildDrone() {
   const navigate = useNavigate();
+  const isDev = isDevMode();
+
   const [selections, setSelections] = useState<Record<string, string>>({
     industry: "agriculture",
     payload: "sprayer",
@@ -71,8 +75,15 @@ export default function BuildDrone() {
     return list.find((o) => o.id === selections.payload) || list[0];
   }, [activeIndustry, selections.payload]);
 
-  const formatPrice = (n: number) =>
-    new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n);
+  const formatPrice = (n: number) => {
+    if (!isDev) return "Under Review";
+    const formatted = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n);
+    return `${formatted} [NEEDS PROOF]`;
+  };
+
+  const payloadDisplay = isDev ? `${activeConfig.payload} [NEEDS PROOF]` : "Under Review";
+  const flightTimeDisplay = isDev ? `${activeConfig.flightTime} [NEEDS PROOF]` : "Under Review";
+  const rangeDisplay = isDev ? `${activeConfig.range} [NEEDS PROOF]` : "Under Review";
 
   const handleSelectOption = (sectionId: string, optId: string) => {
     if (sectionId === "industry") {
@@ -252,7 +263,7 @@ export default function BuildDrone() {
                                 {opt.description || "High performance component engineered for demanding field operations."}
                               </div>
                               <div className="font-mono text-[11px] text-[#fbbf24] pt-2 border-t border-white/10 flex justify-between font-semibold">
-                                <span>{opt.specImpact.payload || opt.specImpact.flightTime || opt.specImpact.range || "Standard Spec"}</span>
+                                <span>{isDev ? (opt.specImpact.payload || opt.specImpact.flightTime || opt.specImpact.range || "Standard Spec") : "Under Review"}</span>
                                 <span>{opt.specImpact.priceAdder ? `+${formatPrice(opt.specImpact.priceAdder)}` : "Base"}</span>
                               </div>
                             </button>
@@ -385,24 +396,29 @@ export default function BuildDrone() {
             </div>
 
             {/* Configured Drone Key Metrics Panel */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#0e1610] border border-white/12 p-5 rounded-sm shadow-xl">
-              <div>
-                <div className="text-label text-[#9ca3af] mb-1">PAYLOAD</div>
-                <div className="text-[16px] font-bold text-[#f3f4f6] font-mono">{activeConfig.payload}</div>
+            {!isDev ? (
+              <UnderReviewPanel message="Content under owner review for verified flight-test data." />
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#0e1610] border border-white/12 p-5 rounded-sm shadow-xl">
+                <div>
+                  <div className="text-label text-[#9ca3af] mb-1">PAYLOAD</div>
+                  <div className="text-[16px] font-bold text-[#f3f4f6] font-mono">{payloadDisplay}</div>
+                </div>
+                <div>
+                  <div className="text-label text-[#9ca3af] mb-1">ENDURANCE</div>
+                  <div className="text-[16px] font-bold text-[#f3f4f6] font-mono">{flightTimeDisplay}</div>
+                </div>
+                <div>
+                  <div className="text-label text-[#9ca3af] mb-1">RANGE</div>
+                  <div className="text-[16px] font-bold text-[#f3f4f6] font-mono">{rangeDisplay}</div>
+                </div>
+                <div>
+                  <div className="text-label text-[#fbbf24] mb-1 font-bold font-mono">EST. PRICE</div>
+                  <div className="text-[16.5px] font-bold text-[#fbbf24] font-mono">{formatPrice(activeConfig.totalPrice)}</div>
+                </div>
               </div>
-              <div>
-                <div className="text-label text-[#9ca3af] mb-1">ENDURANCE</div>
-                <div className="text-[16px] font-bold text-[#f3f4f6] font-mono">{activeConfig.flightTime}</div>
-              </div>
-              <div>
-                <div className="text-label text-[#9ca3af] mb-1">RANGE</div>
-                <div className="text-[16px] font-bold text-[#f3f4f6] font-mono">{activeConfig.range}</div>
-              </div>
-              <div>
-                <div className="text-label text-[#fbbf24] mb-1 font-bold">EST. PRICE</div>
-                <div className="text-[16.5px] font-bold text-[#fbbf24] font-mono">{formatPrice(activeConfig.totalPrice)}</div>
-              </div>
-            </div>
+            )}
+
 
             {/* Action Buttons: Fly Simulator + Get Quote */}
             <div className="space-y-4">

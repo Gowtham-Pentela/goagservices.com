@@ -93,6 +93,26 @@ const FORBIDDEN = [
 
   // Tank size overclaim
   { pattern: /\b100\s*[Ll](?:itres?|iters?)\b/, description: '"100L" capacity claim' },
+
+  // Unverified claims — must be routed via claims.ts governance
+  {
+    pattern: /Global Delivery/i,
+    description: '"Global Delivery" claim (unverified — must be routed via claims.ts)',
+    fileIncludes: [".ts", ".tsx", ".js", ".jsx", ".html"],
+    fileExcludes: ["claims.ts", "check-claims.mjs"],
+  },
+  {
+    pattern: /Certified Flight Test Pilots/i,
+    description: '"Certified Flight Test Pilots" claim (unverified — must be routed via claims.ts)',
+    fileIncludes: [".ts", ".tsx", ".js", ".jsx", ".html"],
+    fileExcludes: ["claims.ts", "check-claims.mjs"],
+  },
+  {
+    pattern: /Every specification on this site is verified/i,
+    description: '"Every specification is verified" claim (unverified — must be routed via claims.ts)',
+    fileIncludes: [".ts", ".tsx", ".js", ".jsx", ".html"],
+    fileExcludes: ["claims.ts", "check-claims.mjs"],
+  },
 ];
 
 // --- Scanner ---
