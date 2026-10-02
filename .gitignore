@@ -32,3 +32,5 @@ playwright/.cache/
 
 # Large raw CAD media not needed in production build (processed assets are in public/)
 goag_website_options.webp
+Images/
+
