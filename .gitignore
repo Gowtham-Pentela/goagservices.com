@@ -30,7 +30,13 @@ blob-report/
 playwright/.cache/
 *.tsbuildinfo
 
-# Large raw CAD media not needed in production build (processed assets are in public/)
+# Large raw CAD media not needed in production build
 goag_website_options.webp
-Images/
 
+# Ignore raw CAD model files
+*.f3z
+*.step
+*.f3d
+*.STEP
+*.F3Z
+*.F3D
