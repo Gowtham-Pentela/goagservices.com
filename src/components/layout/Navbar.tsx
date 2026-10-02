@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
+import { assetUrl } from "../../utils/assets";
 
 const navLinks = [
   { label: "HOME", to: "/" },
@@ -47,7 +48,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center group py-1" aria-label="GoAG Services Home">
           <img
-            src="/logo.png"
+            src={assetUrl("/logo.png")}
             alt="GoAG Services Logo"
             className="h-16 lg:h-18 w-auto max-w-[200px] object-contain transition-transform group-hover:scale-105 filter drop-shadow-md"
           />

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Facebook, Mail, Phone, MapPin, Check } from "lucide-react";
+import { assetUrl } from "../../utils/assets";
 
 const footerLinks = {
   "OUR PRODUCTS": [
@@ -12,7 +13,7 @@ const footerLinks = {
   ],
   COMPANY: [
     { label: "About Us", to: "/about" },
-    { label: "How It Works", to: "/manufacturing" },
+    { label: "How It Works", to: "/how-it-works" },
     { label: "Build Your Drone", to: "/build-your-drone" },
     { label: "Our Campaigns & FPOs", to: "/outreach" },
     { label: "Flight Simulator", to: "/simulator" },
@@ -54,7 +55,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-5">
               <img
-                src="/logo.png"
+                src={assetUrl("/logo.png")}
                 alt="GoAG Services Logo"
                 className="h-16 lg:h-20 w-auto object-contain filter drop-shadow-lg"
               />

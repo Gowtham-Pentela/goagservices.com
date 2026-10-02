@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { assetUrl } from "../../utils/assets";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 export interface DroneState {
@@ -316,7 +317,7 @@ export function buildSimulator(
 
   // ── Screen Video Setup (Screen.mp4 from Images folder) ──
   const screenVideo = document.createElement("video");
-  screenVideo.src = "/Screen.mp4";
+  screenVideo.src = assetUrl("/Screen.mp4");
   screenVideo.crossOrigin = "anonymous";
   screenVideo.loop = true;
   screenVideo.muted = true;
@@ -329,7 +330,7 @@ export function buildSimulator(
   videoTexture.format = THREE.RGBAFormat;
 
   // ── Hologram Logo Texture (logo.png from Images folder) ──
-  const logoTexture = new THREE.TextureLoader().load("/logo.png");
+  const logoTexture = new THREE.TextureLoader().load(assetUrl("/logo.png"));
 
   // ── Mission State ──
   let actionActive = true;

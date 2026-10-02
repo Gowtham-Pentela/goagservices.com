@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, Check, Play, ArrowRight, X } from "lucide-react";
 import { configuratorSections, basePrice, allPayloadOptions, IndustryType } from "../data/configurator";
 import SEO from "../components/common/SEO";
+import { assetUrl } from "../utils/assets";
 
 export default function BuildDrone() {
   const navigate = useNavigate();
@@ -290,7 +291,7 @@ export default function BuildDrone() {
                     {/* GoAG Logo Displayed on the Screen */}
                     <div className="relative z-10 flex flex-col items-center justify-center w-full px-2">
                       <img
-                        src="/logo.png"
+                        src={assetUrl("/logo.png")}
                         alt="GoAG Services Logo Displayed on Screen"
                         className="w-auto h-36 max-h-[65%] object-contain filter drop-shadow-[0_0_24px_rgba(34,197,94,0.85)] animate-pulse"
                       />
@@ -322,7 +323,7 @@ export default function BuildDrone() {
                     <div className="absolute inset-0 rounded-full border border-dashed border-[#06b6d4]/70 animate-spin [animation-duration:12s]" />
                     <div className="absolute inset-2 rounded-full border border-dotted border-[#f59e0b]/50 animate-spin [animation-duration:8s] [animation-direction:reverse]" />
                     <img
-                      src="/logo.png"
+                      src={assetUrl("/logo.png")}
                       alt="GoAG Services 3D Spherical Hologram Logo"
                       className="h-28 w-auto object-contain filter drop-shadow-[0_0_24px_rgba(34,197,94,0.8)] animate-pulse relative z-10"
                     />
@@ -337,12 +338,12 @@ export default function BuildDrone() {
                   src={
                     selections.industry === "agriculture"
                       ? selections.payload === "sprayer"
-                        ? "/Spraying.webp" // Authentic GoAG maize spraying drone
+                        ? assetUrl("/Spraying.webp") // Authentic GoAG maize spraying drone
                         : "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1000&q=80&fm=webp" // Agriculture spreader over field
                       : selections.payload === "solar-cleaning"
-                      ? "/solar-cleaning.jpeg" // Authentic GoAG solar cleaning drone
+                      ? assetUrl("/solar-cleaning.jpeg") // Authentic GoAG solar cleaning drone
                       : selections.payload === "high-rise-cleaning"
-                      ? "/high-building-cleaning.jpeg" // Authentic GoAG building cleaning drone
+                      ? assetUrl("/high-building-cleaning.jpeg") // Authentic GoAG building cleaning drone
                       : selections.payload === "flower-dropping"
                       ? "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?w=1000&q=80&fm=webp" // Colorful marigold flowers
                       : selections.payload === "winch-mechanism"

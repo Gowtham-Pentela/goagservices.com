@@ -18,6 +18,7 @@ import {
   Cpu
 } from "lucide-react";
 import { DRONES_360_CATALOG, Drone360Data } from "../../data/drones360";
+import { assetUrl } from "../../utils/assets";
 
 interface Drone360ViewerProps {
   initialDroneId?: string;
@@ -84,7 +85,7 @@ export default function Drone360Viewer({
 
     droneFrames.forEach((src) => {
       const img = new Image();
-      img.src = src;
+      img.src = assetUrl(src);
       img.onload = () => {
         loadedCount += 1;
         if (loadedCount >= Math.min(8, droneFrames.length)) {
@@ -275,8 +276,8 @@ export default function Drone360Viewer({
   // Blend progress between base and next frame (0.00 to 1.00)
   const blendFactor = normalizedAngle - baseFrameIndex;
 
-  const baseFrameUrl = activeDrone.frames[baseFrameIndex] || activeDrone.poster;
-  const nextFrameUrl = activeDrone.frames[nextFrameIndex] || activeDrone.poster;
+  const baseFrameUrl = assetUrl(activeDrone.frames[baseFrameIndex] || activeDrone.poster);
+  const nextFrameUrl = assetUrl(activeDrone.frames[nextFrameIndex] || activeDrone.poster);
 
   return (
     <div

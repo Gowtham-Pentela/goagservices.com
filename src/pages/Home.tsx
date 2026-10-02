@@ -5,6 +5,7 @@ import { ArrowRight, ChevronRight, ChevronDown, Zap, Sprout, Building2, HelpCirc
 import DroneViewer from "../components/three/DroneViewer";
 import Drone360Viewer from "../components/common/Drone360Viewer";
 import SEO from "../components/common/SEO";
+import { assetUrl } from "../utils/assets";
 
 const boundaryMetrics = [
   { value: "100 L", label: "SINGLE DISCHARGE", pointer: "Minimizes refill runs for expansive acreage" },
@@ -517,7 +518,7 @@ export default function Home() {
           {/* Picture Speaking For Itself */}
           <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl group">
             <img
-              src="/high-building-cleaning.jpeg"
+              src={assetUrl("/high-building-cleaning.jpeg")}
               alt="GoAG aerospace drone hardware testing"
               className="w-full h-[440px] object-cover opacity-85 group-hover:scale-105 transition-transform duration-700"
             />
@@ -663,7 +664,7 @@ export default function Home() {
                   {/* Visual Picture */}
                   <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-black/40 mb-4 border border-white/5">
                     <img
-                      src={drone.image}
+                      src={assetUrl(drone.image)}
                       alt={drone.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                     />
