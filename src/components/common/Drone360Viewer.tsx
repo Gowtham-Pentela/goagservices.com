@@ -707,7 +707,7 @@ export default function Drone360Viewer({
                   </span>
                 </div>
                 <div className="text-white/40 text-[11px]">
-                  Official Hyderabad Hub: Plot No 72/P, Kukatpally Hills • +91 98855 89001
+                  Official Hyderabad Hub: Plot No 72/P, Kukatpally Heights • +91 98855 89001
                 </div>
               </div>
             </div>

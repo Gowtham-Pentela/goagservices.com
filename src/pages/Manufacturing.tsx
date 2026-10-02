@@ -88,7 +88,7 @@ export default function Manufacturing() {
               • 80% Made in India
             </span>
             <span className="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90">
-              • DGCA certified Engineering
+              • DGCA certified
             </span>
             <span className="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90">
               • Hyderabad Aerospace Facility

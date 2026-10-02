@@ -32,13 +32,13 @@ export const contactInfo: ContactInfo = {
   tagline: "DRONES FOR A BRIGHTER INDIA",
   fullTagline: "Technology for Remote Intelligent Sustainable Holistic Unified Land Farming",
   address: {
-    line1: "Plot No: 72/P, 3rd Floor, Rajiv Gandhi Nagar, Kukatpally Hills",
+    line1: "Plot No: 72/P, 3rd Floor, Rajiv Gandhi Nagar, Kukatpally Heights",
     line2: "Industrial Development Area",
     city: "Hyderabad",
     state: "Telangana",
     pincode: "500072",
     country: "India",
-    fullFormatted: "Plot No: 72/P, 3rd Floor, Rajiv Gandhi Nagar, Kukatpally Hills, Industrial Development Area, Hyderabad, Telangana - 500072",
+    fullFormatted: "Plot No: 72/P, 3rd Floor, Rajiv Gandhi Nagar, Kukatpally Heights, Industrial Development Area, Hyderabad, Telangana - 500072",
   },
   phones: [
     {
@@ -58,5 +58,5 @@ export const contactInfo: ContactInfo = {
     latitude: 17.4933,
     longitude: 78.3914,
   },
-  hours: "Monday – Saturday: 09:00 – 18:30 IST",
+  hours: "Mon to Sat, 09:00 to 18:30 IST",
 };

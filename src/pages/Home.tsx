@@ -238,7 +238,7 @@ const homeFaqs = [
     pointers: [
       "Warranty: Up to 2 years manufacturer warranty",
       "Hyderabad Hub: Direct manufacturer supply with local spare inventory",
-      "DGCA certified operations and field deployment engineering"
+      "DGCA certified with full in-house field support"
     ],
   },
 ];
@@ -461,14 +461,14 @@ export default function Home() {
 
             <div className="p-5 bg-[#070c08] border border-white/10 rounded-xl space-y-3 font-mono">
               <div className="text-[10px] text-[#9ca3af] uppercase">COMPATIBLE PLATFORMS</div>
-              <div className="text-base font-bold text-white">Agrown-x & Agrown-x Pro</div>
+              <div className="text-base font-bold text-white">Agrown-10X & Agrown-10X Super Compact</div>
               <div className="text-xs text-white/60 space-y-1 pt-2 border-t border-white/5">
                 <div>• RTK centimeter swath guidance</div>
                 <div>• Downward wash prop airflow</div>
                 <div>• Micron atomized misting</div>
               </div>
               <Link
-                to="/products/agrown-x"
+                to="/products/agrown-10x"
                 className="btn-amber w-full py-2.5 block text-center rounded-lg text-xs font-bold font-mono mt-3"
               >
                 VIEW PLATFORM SPECS
@@ -549,10 +549,10 @@ export default function Home() {
               </h2>
             </div>
             <Link
-              to="/products/agrown-x"
+              to="/products/agrown-10x"
               className="btn-amber px-6 py-2.5 inline-flex items-center gap-2 rounded-lg text-xs font-mono font-bold"
             >
-              <span>AGROWN-X SPECS</span>
+              <span>AGROWN-10X SPECS</span>
               <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -618,7 +618,7 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between">
                   <span>STANDARD:</span>
-                  <span className="text-[#22c55e]">DGCA / ISO 9001</span>
+                  <span className="text-[#22c55e]">DGCA certified</span>
                 </div>
               </div>
             </div>
@@ -775,7 +775,7 @@ export default function Home() {
               <div className="space-y-2.5 mb-6 font-mono text-xs text-white/80">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#22c55e] flex-shrink-0" />
-                  <span>Priority allotment on Agrown-x & Agrown-x Pro</span>
+                  <span>Priority allotment on Agrown-10X & Agrown-10X Super Compact</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#22c55e] flex-shrink-0" />

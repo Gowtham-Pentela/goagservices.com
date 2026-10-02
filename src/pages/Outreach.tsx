@@ -401,7 +401,7 @@ export default function Outreach() {
                 desc: "An inside look at our in-house frame milling, brushless powertrain testing, and weather-sealed avionics.",
               },
               {
-                title: "The Power of Precision: Mapping with Agrown-x Pro",
+                title: "The Power of Precision: Mapping with Graydon",
                 date: "Jul 25, 2025",
                 tag: "FIELD OPERATIONS",
                 desc: "How 10-acre hexacopter endurance combined with RTK positioning delivers centimeter-grade droplet swaths.",

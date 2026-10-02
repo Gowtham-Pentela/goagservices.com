@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-
-# Sitemaps
-Sitemap: https://goagdrones.com/sitemap.xml
+Disallow: /

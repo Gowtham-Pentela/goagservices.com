@@ -31,7 +31,6 @@ export interface Drone360Data {
   frameCount: number;
   frames: string[];
   poster: string;
-  turntable: string;
 }
 
 export const DRONES_360_CATALOG: Drone360Data[] = [
@@ -56,7 +55,6 @@ export const DRONES_360_CATALOG: Drone360Data[] = [
     frameCount: 36,
     frames: Array.from({ length: 36 }, (_, i) => `/drones-360/10x-sprayer/smooth_${String(i + 1).padStart(2, '0')}.webp`),
     poster: "/drones-360/10x-sprayer/smooth_01.webp",
-    turntable: "/drones-360/10x-sprayer/turntable-360.webp",
   },
   {
     id: "10x-spreader",
@@ -79,7 +77,6 @@ export const DRONES_360_CATALOG: Drone360Data[] = [
     frameCount: 36,
     frames: Array.from({ length: 36 }, (_, i) => `/drones-360/10x-spreader/smooth_${String(i + 1).padStart(2, '0')}.webp`),
     poster: "/drones-360/10x-spreader/smooth_01.webp",
-    turntable: "/drones-360/10x-spreader/turntable-360.webp",
   },
   {
     id: "5x-sprayer",
@@ -102,7 +99,6 @@ export const DRONES_360_CATALOG: Drone360Data[] = [
     frameCount: 36,
     frames: Array.from({ length: 36 }, (_, i) => `/drones-360/5x-sprayer/smooth_${String(i + 1).padStart(2, '0')}.webp`),
     poster: "/drones-360/5x-sprayer/smooth_01.webp",
-    turntable: "/drones-360/5x-sprayer/turntable-360.webp",
   },
   {
     id: "5x-spreader",
@@ -125,21 +121,20 @@ export const DRONES_360_CATALOG: Drone360Data[] = [
     frameCount: 36,
     frames: Array.from({ length: 36 }, (_, i) => `/drones-360/5x-spreader/smooth_${String(i + 1).padStart(2, '0')}.webp`),
     poster: "/drones-360/5x-spreader/smooth_01.webp",
-    turntable: "/drones-360/5x-spreader/turntable-360.webp",
   },
   {
     id: "greaydon-base",
     folder: "GREAYDON ONLY DRONE IMAGES",
-    name: "Graydon Industrial Airframe",
+    name: "Graydon Base Airframe",
     series: "Modular Heavy-Lift",
     tagline: "Multi-Utility Aerospace Carbon-Fiber Industrial Airframe",
     category: "Industrial / Multi-Mission",
-    payloadType: "Modular Base",
+    payloadType: "Base Airframe",
     specs: {
       maxPayload: "25 - 30 Kg",
       endurance: "Up to 35 Mins (Empty)",
       airframe: "3K Twill Carbon Fiber + Aviation Aluminum",
-      windResistance: "Up to 12 m/s (Force 6)",
+      windResistance: "Up to 12 m/s",
       ipRating: "IP65 Weatherproof",
       flightController: "Triple Redundant Industrial Autopilot",
       rotorConfig: "Heavy Hexacopter",
@@ -147,12 +142,11 @@ export const DRONES_360_CATALOG: Drone360Data[] = [
     frameCount: 36,
     frames: Array.from({ length: 36 }, (_, i) => `/drones-360/greaydon-base/smooth_${String(i + 1).padStart(2, '0')}.webp`),
     poster: "/drones-360/greaydon-base/smooth_01.webp",
-    turntable: "/drones-360/greaydon-base/turntable-360.webp",
   },
   {
     id: "greaydon-sprayer",
     folder: "GREAYDON SPREAYING DRONE",
-    name: "Graydon Heavy Sprayer",
+    name: "Graydon Sprayer",
     series: "Enterprise High-Volume",
     tagline: "Commercial Heavy-Capacity Multi-Nozzle Agricultural Sprayer",
     category: "Agriculture / Industrial",
@@ -168,12 +162,11 @@ export const DRONES_360_CATALOG: Drone360Data[] = [
     frameCount: 28,
     frames: Array.from({ length: 28 }, (_, i) => `/drones-360/greaydon-sprayer/smooth_${String(i + 1).padStart(2, '0')}.webp`),
     poster: "/drones-360/greaydon-sprayer/smooth_01.webp",
-    turntable: "/drones-360/greaydon-sprayer/turntable-360.webp",
   },
   {
     id: "greaydon-spreader",
     folder: "GREAYDON SPEADER DRONE",
-    name: "Graydon Heavy Spreader",
+    name: "Graydon Spreader",
     series: "Enterprise Broadcaster",
     tagline: "Industrial-Scale Granular, Pellet & Seed Broadcaster",
     category: "Agriculture / Industrial",
@@ -188,6 +181,5 @@ export const DRONES_360_CATALOG: Drone360Data[] = [
     frameCount: 28,
     frames: Array.from({ length: 28 }, (_, i) => `/drones-360/greaydon-spreader/smooth_${String(i + 1).padStart(2, '0')}.webp`),
     poster: "/drones-360/greaydon-spreader/smooth_01.webp",
-    turntable: "/drones-360/greaydon-spreader/turntable-360.webp",
   },
 ];

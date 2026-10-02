@@ -62,7 +62,7 @@ export default function ProductDetail() {
     <div className="min-h-screen" style={{ background: "#070c08" }}>
       <SEO
         title={`${product.name} | ${product.tagline} — GoAG Services`}
-        description={`${product.name}: ${product.description} 80% Made in India with up to 2 years warranty and DGCA certified engineering.`}
+        description={`${product.name}: ${product.description} 80% Made in India with up to 2 years warranty. DGCA certified.`}
         keywords={`${product.name}, ${product.tagline}, agricultural drone, crop sprayer drone, ${product.category} drone India, GoAG Hyderabad`}
         canonical={`/products/${product.slug}`}
         schema={productSchema}
@@ -294,7 +294,7 @@ export default function ProductDetail() {
                         <div className="text-[#f3f4f6] text-[16.5px] font-bold">24/7 On-Site Available</div>
                       </div>
                       <div>
-                        <div className="text-label text-[#9ca3af] mb-1">DGCA COMPLIANCE</div>
+                        <div className="text-label text-[#9ca3af] mb-1">CERTIFICATION</div>
                         <div className="text-[#22c55e] text-[16.5px] font-bold">DGCA certified</div>
                       </div>
                     </div>

@@ -2,33 +2,34 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Phone, MessageCircle, Mail, MapPin, Check, Building2, Clock } from "lucide-react";
 import SEO from "../components/common/SEO";
+import { contactInfo } from "../content/contact";
 
 const contactMethods = [
   {
     icon: Phone,
     label: "CALL US",
-    value: "+91 98855 89001",
-    href: "tel:+919885589001",
+    value: contactInfo.phones[0].display,
+    href: contactInfo.phones[0].href,
     id: "contact-phone",
   },
   {
     icon: MessageCircle,
     label: "WHATSAPP",
-    value: "+91 98855 89001",
-    href: "https://wa.me/919885589001",
+    value: contactInfo.phones[0].display,
+    href: `https://wa.me/${contactInfo.phones[0].numeric}`,
     id: "contact-whatsapp",
   },
   {
     icon: Mail,
     label: "EMAIL US",
-    value: "go.agriculturalservices@gmail.com",
-    href: "mailto:go.agriculturalservices@gmail.com",
+    value: contactInfo.email,
+    href: contactInfo.emailHref,
     id: "contact-email",
   },
   {
     icon: MapPin,
     label: "VISIT HEADQUARTERS",
-    value: "Kukatpally IDA, Hyderabad",
+    value: "Kukatpally Heights, Hyderabad",
     href: "#map",
     id: "contact-visit",
   },
@@ -143,17 +144,17 @@ export default function Contact() {
                   GoAG Services Private Limited
                 </h3>
                 <div className="text-[#d1d5db] text-[16px] leading-relaxed">
-                  <strong>Plot No: 72/P, 3rd Floor</strong>, Rajiv Gandhi Nagar, Kukatpally, P & B Heights, Industrial Development Area, Hyderabad, Telangana — 500072, India.
+                  {contactInfo.address.fullFormatted}
                 </div>
                 <div className="pt-4 border-t border-white/10 space-y-2 text-[14.5px] text-[#9ca3af]">
                   <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-[#fbbf24]" /> Phone: <strong>+91 98855 89001</strong>
+                    <Phone className="w-4 h-4 text-[#fbbf24]" /> Phone: <strong>{contactInfo.phones[0].display}</strong>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-[#22c55e]" /> Email: <strong>go.agriculturalservices@gmail.com</strong>
+                    <Mail className="w-4 h-4 text-[#22c55e]" /> Email: <strong>{contactInfo.email}</strong>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-[#9ca3af]" /> Hours: Monday – Saturday, 9:00 AM – 6:30 PM IST
+                    <Clock className="w-4 h-4 text-[#9ca3af]" /> Hours: {contactInfo.hours}
                   </div>
                 </div>
               </div>
@@ -289,7 +290,7 @@ export default function Contact() {
                       onChange={handleChange("interest")}
                       className="w-full px-4 py-3.5 text-[15.5px] text-[#f3f4f6] border border-white/15 outline-none transition-colors rounded-sm bg-[#070c08]"
                     >
-                      <option value="Product Purchase">Drone Purchase (Agrown-x / Pro / Swift 20)</option>
+                      <option value="Product Purchase">Drone Purchase (Agrown-10X / Super Compact / Graydon)</option>
                       <option value="FPO Special Discount">FPO Special Discount Scheme</option>
                       <option value="Dealership / Distributor">Dealership & Distribution Inquiry</option>
                       <option value="Demo Request">Request On-Field Live Demonstration</option>

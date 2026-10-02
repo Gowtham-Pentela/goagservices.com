@@ -73,8 +73,14 @@ export const claims: Record<string, Claim> = {
   },
   "product-platforms-count": {
     id: "product-platforms-count",
-    text: "3+ Product Platforms",
-    value: "3+",
+    text: "3 Product Platforms",
+    value: "3",
+    status: "verified",
+  },
+  "business-hours": {
+    id: "business-hours",
+    text: "Mon to Sat, 09:00 to 18:30 IST",
+    value: "Mon to Sat, 09:00 to 18:30 IST",
     status: "verified",
   },
 

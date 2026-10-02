@@ -32,11 +32,10 @@ DRONE_CONFIGS = [
         "category": "Agriculture",
         "payloadType": "Spreader",
         "specs": {
-            "capacity": "12 Kg Granular Hopper",
+            "capacity": "10–12 Kg Granular Hopper",
             "spreadWidth": "5 - 7 Metres",
-            "efficiency": "1 Acre in 5 Minutes",
             "flowRate": "1 - 8 kg/min Adjustable",
-            "maintenanceCost": "₹45 / Acre",
+            "maintenanceCost": "₹50 / Acre",
             "flightTime": "16 - 20 Mins",
             "rotorConfig": "Hexacopter (6 Rotors)"
         }
@@ -44,7 +43,7 @@ DRONE_CONFIGS = [
     {
         "id": "5x-sprayer",
         "folder": "5X SPREAYING DRONE",
-        "name": "Agrown-5X Sprayer",
+        "name": "Agrown-10X Super Compact Sprayer",
         "series": "Agile Quadcopter",
         "tagline": "Compact Rapid-Deployment Precision Spraying Drone",
         "category": "Agriculture",
@@ -52,7 +51,6 @@ DRONE_CONFIGS = [
         "specs": {
             "capacity": "5 Litres",
             "sprayWidth": "3 - 4.5 Metres",
-            "efficiency": "1 Acre in 10 Minutes",
             "batteryCost": "₹15 / Acre",
             "maintenanceCost": "₹35 / Acre",
             "flightTime": "15 - 18 Mins",
@@ -62,7 +60,7 @@ DRONE_CONFIGS = [
     {
         "id": "5x-spreader",
         "folder": "5X SPREADER DRONE",
-        "name": "Agrown-5X Spreader",
+        "name": "Agrown-10X Super Compact Spreader",
         "series": "Agile Granular",
         "tagline": "Lightweight High-Uniformity Fertilizer & Seed Broadcaster",
         "category": "Agriculture",
@@ -70,7 +68,6 @@ DRONE_CONFIGS = [
         "specs": {
             "capacity": "6 Kg Hopper",
             "spreadWidth": "4 - 5.5 Metres",
-            "efficiency": "1 Acre in 8 Minutes",
             "flowRate": "0.5 - 5 kg/min",
             "maintenanceCost": "₹35 / Acre",
             "flightTime": "14 - 17 Mins",
@@ -80,16 +77,16 @@ DRONE_CONFIGS = [
     {
         "id": "greaydon-base",
         "folder": "GREAYDON ONLY DRONE IMAGES",
-        "name": "Greaydon Industrial Airframe",
+        "name": "Graydon Base Airframe",
         "series": "Modular Heavy-Lift",
         "tagline": "Multi-Utility Aerospace Carbon-Fiber Industrial Airframe",
         "category": "Industrial / Multi-Mission",
-        "payloadType": "Modular Base",
+        "payloadType": "Base Airframe",
         "specs": {
             "maxPayload": "25 - 30 Kg",
             "endurance": "Up to 35 Mins (Empty)",
             "airframe": "3K Twill Carbon Fiber + Aviation Aluminum",
-            "windResistance": "Up to 12 m/s (Force 6)",
+            "windResistance": "Up to 12 m/s",
             "ipRating": "IP65 Weatherproof",
             "flightController": "Triple Redundant Industrial Autopilot",
             "rotorConfig": "Heavy Hexacopter"
@@ -98,7 +95,7 @@ DRONE_CONFIGS = [
     {
         "id": "greaydon-sprayer",
         "folder": "GREAYDON SPREAYING DRONE",
-        "name": "Greaydon Heavy Sprayer",
+        "name": "Graydon Sprayer",
         "series": "Enterprise High-Volume",
         "tagline": "Commercial Heavy-Capacity Multi-Nozzle Agricultural Sprayer",
         "category": "Agriculture / Industrial",
@@ -106,9 +103,7 @@ DRONE_CONFIGS = [
         "specs": {
             "capacity": "20 - 25 Litres",
             "sprayWidth": "6 - 9 Metres",
-            "efficiency": "1 Acre in 3.5 Minutes",
             "pumpPressure": "High-Pressure Quad Brushless Pumps",
-            "coverage": "Up to 80 Acres / Day",
             "maintenanceCost": "₹50 / Acre",
             "rotorConfig": "Heavy Hexacopter"
         }
@@ -116,7 +111,7 @@ DRONE_CONFIGS = [
     {
         "id": "greaydon-spreader",
         "folder": "GREAYDON SPEADER DRONE",
-        "name": "Greaydon Heavy Spreader",
+        "name": "Graydon Spreader",
         "series": "Enterprise Broadcaster",
         "tagline": "Industrial-Scale Granular, Pellet & Seed Broadcaster",
         "category": "Agriculture / Industrial",
@@ -124,9 +119,7 @@ DRONE_CONFIGS = [
         "specs": {
             "capacity": "25 Kg Heavy-Duty Hopper",
             "spreadWidth": "7 - 11 Metres",
-            "efficiency": "1 Acre in 3 Minutes",
             "flowControl": "Smart Weighing & Dynamic Flow Adjustment",
-            "coverage": "Up to 100 Acres / Day",
             "rotorConfig": "Heavy Hexacopter"
         }
     }
@@ -195,24 +188,6 @@ for cfg in DRONE_CONFIGS:
         frame_paths.append(rel_frame_path)
         processed_frames.append(resized)
         
-    # Generate animated 360 turntable preview
-    # Scale down slightly for snappy turntable preview (e.g. 800px wide)
-    anim_w = 800
-    anim_h = int(anim_w * (crop_h / crop_w))
-    anim_frames = [f.resize((anim_w, anim_h), Image.Resampling.BILINEAR) for f in processed_frames]
-    
-    turntable_name = "turntable-360.webp"
-    turntable_path = os.path.join(out_dir, turntable_name)
-    anim_frames[0].save(
-        turntable_path,
-        'WEBP',
-        save_all=True,
-        append_images=anim_frames[1:],
-        duration=130,
-        loop=0,
-        quality=80
-    )
-    
     # Save poster frame (first front-facing frame)
     poster_name = "poster.webp"
     poster_path = os.path.join(out_dir, poster_name)
@@ -222,9 +197,8 @@ for cfg in DRONE_CONFIGS:
     cfg_copy['frameCount'] = len(frame_paths)
     cfg_copy['frames'] = frame_paths
     cfg_copy['poster'] = f"/drones-360/{cfg['id']}/{poster_name}"
-    cfg_copy['turntable'] = f"/drones-360/{cfg['id']}/{turntable_name}"
     manifest_list.append(cfg_copy)
-    print(f"  Finished {cfg['name']}: {len(frame_paths)} frames + turntable preview.")
+    print(f"  Finished {cfg['name']}: {len(frame_paths)} frames.")
 
 manifest_path = os.path.join(OUT_BASE, 'drones-manifest.json')
 with open(manifest_path, 'w') as mf:

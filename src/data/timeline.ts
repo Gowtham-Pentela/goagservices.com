@@ -19,9 +19,9 @@ export const timelineMilestones = [
   },
   {
     year: "2021",
-    title: "DGCA Certified",
+    title: "DGCA certified",
     description:
-      "Achieved DGCA certified operations and indigenous drone platform standards.",
+      "DGCA certified manufacturer.",
   },
   {
     year: "2022",
