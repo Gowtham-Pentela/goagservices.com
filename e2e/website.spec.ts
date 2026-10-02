@@ -1,0 +1,157 @@
+import { test, expect } from '@playwright/test';
+
+test.describe('GoAG Aerospace & Defense Website E2E Tests', () => {
+
+  test('1. Home Page - Hero, 3D Canvas, Nav, Metrics & Feature Tabs', async ({ page }) => {
+    await page.goto('/');
+    
+    // Title & Navbar
+    await expect(page).toHaveTitle(/GoAG/);
+    await expect(page.locator('nav').getByText('GoAG')).toBeVisible();
+
+    // Nav Links
+    await expect(page.locator('nav').getByRole('link', { name: 'PRODUCTS' })).toBeVisible();
+    await expect(page.locator('nav').getByRole('link', { name: 'MANUFACTURING' })).toBeVisible();
+    await expect(page.locator('nav').getByRole('link', { name: 'BUILD YOUR DRONE' })).toBeVisible();
+    await expect(page.locator('nav').getByRole('link', { name: 'OUTREACH' })).toBeVisible();
+    await expect(page.locator('nav').getByRole('link', { name: 'ABOUT US' })).toBeVisible();
+
+    // Hero headline text
+    await expect(page.getByText('ENGINEERED IN INDIA.')).toBeVisible();
+
+    // 3D Canvas element
+    const canvas = page.locator('canvas').first();
+    await expect(canvas).toBeVisible();
+
+    // Live product experience tabs
+    const sprayTab = page.locator('#lpe-spray');
+    const batteryTab = page.locator('#lpe-battery');
+    await expect(sprayTab).toBeVisible();
+    await expect(batteryTab).toBeVisible();
+    
+    await batteryTab.click();
+    await expect(page.getByText('EXPLORE DRONE ARCHITECTURE & COMPONENTS')).toBeVisible();
+  });
+
+  test('2. Products Page & Navigation', async ({ page }) => {
+    await page.goto('/products');
+
+    await expect(page.getByText('OUR DRONE SYSTEMS').first()).toBeVisible();
+
+    // Product card check (use first to resolve multiple elements)
+    const agriCard = page.getByRole('heading', { name: 'AGRI X10' }).first();
+    await expect(agriCard).toBeVisible();
+
+    // Click product detail
+    const detailsLink = page.locator('a[href="/products/agri-x10"]').first();
+    await detailsLink.click();
+    await expect(page).toHaveURL(/\/products\/agri-x10/);
+  });
+
+  test('3. Product Detail Page - 3D Viewer & Specification Tabs', async ({ page }) => {
+    await page.goto('/products/agri-x10');
+
+    await expect(page.getByRole('heading', { name: 'AGRI X10' })).toBeVisible();
+
+    // Spec tabs check via explicit tab IDs
+    const overviewTab = page.locator('#tab-overview');
+    const specsTab = page.locator('#tab-specifications');
+    await expect(overviewTab).toBeVisible();
+    await expect(specsTab).toBeVisible();
+
+    await specsTab.click();
+    await expect(page.getByText('SPECIFICATIONS').first()).toBeVisible();
+  });
+
+  test('4. Manufacturing Page - Stage Grid & Certifications', async ({ page }) => {
+    await page.goto('/manufacturing');
+
+    await expect(page.getByText('FROM RAW CARBON FIBER TO MISSION FLIGHT')).toBeVisible();
+    await expect(page.getByText('ISO 9001:2015 CERTIFIED MANUFACTURING PROCESS')).toBeVisible();
+  });
+
+  test('5. Build Drone Configurator - Quote Modal with Customer Info & Flight Simulator CTA', async ({ page }) => {
+    await page.goto('/build-your-drone');
+
+    await expect(page.getByText('BUILD YOUR CUSTOM MISSION DRONE')).toBeVisible();
+    await expect(page.getByText(/₹/i).first()).toBeVisible();
+
+    // Verify Fly Your Drone CTA exists and navigates to simulator
+    const flyBtn = page.locator('#fly-simulator-btn');
+    await expect(flyBtn).toBeVisible();
+    await flyBtn.click();
+    await expect(page).toHaveURL(/\/simulator/);
+
+    // Return to build drone page to test quote modal
+    await page.goto('/build-your-drone');
+    const quoteBtn = page.locator('#get-quote-btn');
+    await expect(quoteBtn).toBeVisible();
+    await quoteBtn.click();
+
+    // Verify modal pops up requiring customer details (Name, Mobile, Profession)
+    await expect(page.getByText('CUSTOM QUOTE REQUEST')).toBeVisible();
+    await page.fill('#quote-name', 'Rajesh Sharma');
+    await page.fill('#quote-phone', '9876543210');
+    await page.fill('#quote-email', 'rajesh@sharma.com');
+    await page.selectOption('#quote-profession', 'Farmer / Agriculture Specialist');
+
+    const submitQuoteBtn = page.locator('#quote-submit-btn');
+    await submitQuoteBtn.click();
+
+    // Verify confirmation message
+    await expect(page.getByText('QUOTE REQUEST SUBMITTED')).toBeVisible();
+  });
+
+  test('6. Flight Simulator Page - Launch Flight & WebGL Canvas', async ({ page }) => {
+    await page.goto('/simulator');
+
+    await expect(page.getByText('GoAG FLIGHT SIMULATOR')).toBeVisible();
+
+    const startBtn = page.locator('#start-simulator-btn');
+    await expect(startBtn).toBeVisible();
+    await startBtn.click();
+
+    // WebGL Canvas & HUD telemetry check
+    const canvas = page.locator('canvas').first();
+    await expect(canvas).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText('ALT').first()).toBeVisible();
+  });
+
+  test('7. Outreach Page - Satellite View India Map & Hyderabad HQ', async ({ page }) => {
+    await page.goto('/outreach');
+
+    await expect(page.getByText('ENGINEERED IN HYDERABAD.')).toBeVisible();
+    await expect(page.getByText('SUPPLIED ALL OVER INDIA.')).toBeVisible();
+
+    // SVG Satellite Map & Hyderabad node check
+    const svgMap = page.locator('svg').first();
+    await expect(svgMap).toBeVisible();
+    await expect(page.getByText('HYDERABAD COMMAND HQ')).toBeVisible();
+  });
+
+  test('8. About Page - Company Story & Values', async ({ page }) => {
+    await page.goto('/about');
+
+    await expect(page.getByText('DRIVEN BY PURPOSE.')).toBeVisible();
+  });
+
+  test('9. Contact Page - Form fill and submission confirmation', async ({ page }) => {
+    await page.goto('/contact');
+
+    await expect(page.getByText('CONNECT WITH GoAG ENGINEERS').first()).toBeVisible();
+
+    // Fill form
+    await page.fill('#form-name', 'Dr. Vikram Sarabhai');
+    await page.fill('#form-email', 'vikram@isro.gov.in');
+    await page.fill('#form-phone', '+91 98765 43210');
+    await page.fill('#form-requirement', 'Inquiry regarding custom payload integration for high altitude survey.');
+
+    // Submit form
+    const submitBtn = page.locator('#contact-submit-btn');
+    await submitBtn.click();
+
+    // Check confirmation message
+    await expect(page.getByText('MESSAGE TRANSMITTED')).toBeVisible();
+  });
+
+});
