@@ -30,8 +30,7 @@ export const products: Product[] = [
     tagline: "Robust 10-Litre Workhorse",
     description:
       "World-class, road-ready aerospace frame that folds down for easy transport yet stays rock-solid in flight. 10 L payload delivers uniform spray patterns across diverse crops in Indian conditions, covering up to 4 acres per battery with precision nozzles and smart power management.",
-    image:
-      "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&q=80&fm=webp",
+    image: "/drones-360/10x-sprayer/smooth_01.webp",
     specs: {
       tankCapacity: "10 Liters",
       flightTime: "28 Min",
@@ -39,7 +38,7 @@ export const products: Product[] = [
       payload: "10 kg",
       range: "3 km",
       waterResistance: "IP67 Monsoon-Tested",
-      coverage: "4 Acres / Battery",
+      coverage: "1 Acre in 7 Mins (~8.5 Acres / Hr)",
       battery: "12S / 14S Smart LiPo",
       operatingTemp: "-10°C to 50°C",
     },
@@ -57,11 +56,10 @@ export const products: Product[] = [
     slug: "agrown-x-pro",
     name: "Agrown-x Pro",
     category: "Agriculture",
-    tagline: "India’s First Hexacopter Game-Changer",
+    tagline: "High-Performance Hexacopter Platform",
     description:
-      "The maiden Made-in-India spraying hexacopter that finishes up to 10 acres on a single battery, setting a new national benchmark. Built with farm-tough metal DNA to shrug off dust, bumps, and vibration, keeping operators flying and earning season after season.",
-    image:
-      "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=1200&q=80&fm=webp",
+      "Precision Made-in-India spraying hexacopter that finishes up to 10 acres on a single battery pack. Built with farm-tough metal DNA to shrug off dust, bumps, and vibration, keeping operators flying and earning season after season.",
+    image: "/drones-360/10x-spreader/smooth_01.webp",
     specs: {
       tankCapacity: "16–20 Liters",
       flightTime: "32 Min",
@@ -74,7 +72,7 @@ export const products: Product[] = [
       operatingTemp: "-10°C to 55°C",
     },
     highlights: [
-      "India’s First Hexacopter Game-Changer",
+      "Heavy-Duty Hexacopter Architecture",
       "Farm-Tough Metal DNA Chassis",
       "Ten-Acre Sprint on a Single Charge",
       "Dual-Frequency RTK Centimeter Precision",
@@ -90,8 +88,7 @@ export const products: Product[] = [
     tagline: "20–30 L Payload Muscle & Transformer Kit",
     description:
       "Engineered for heavy spray volumes across plantations and broad-acre farms without constant refills. Features swappable electronics with zero downtime between air and ground modes, plus a snap-on ground-rover kit that keeps your investment earning even in non-spraying seasons.",
-    image:
-      "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?w=1200&q=80&fm=webp",
+    image: "/drones-360/5x-sprayer/smooth_01.webp",
     specs: {
       tankCapacity: "20–30 Liters",
       flightTime: "26 Min",
@@ -99,7 +96,7 @@ export const products: Product[] = [
       payload: "20–30 kg",
       range: "5 km",
       waterResistance: "IP67 Heavy-Duty",
-      coverage: "Up to 25 Acres / Hour",
+      coverage: "Up to 15–20 Acres / Hour",
       battery: "Swappable High-Density Modular Packs",
       operatingTemp: "-10°C to 50°C",
     },
@@ -120,8 +117,7 @@ export const products: Product[] = [
     tagline: "AI Environmental & Field Health Analytics",
     description:
       "State-of-the-art intelligent drone powered by AI and multispectral optics to deliver fast, accurate, real-time field data. From crop stress and canopy NDVI indexing to soil health and terrain contours, helping you see more, decide faster, and work smarter.",
-    image:
-      "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=1200&q=80&fm=webp",
+    image: "/drones-360/greaydon-base/smooth_01.webp",
     specs: {
       flightTime: "42 Min",
       maxSpeed: "14 m/s",

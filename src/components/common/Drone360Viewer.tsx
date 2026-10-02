@@ -77,33 +77,57 @@ export default function Drone360Viewer({
     }
   }, [activeDrone, onDroneChange]);
 
-  // Preload frames whenever activeDrone changes
+  // Progressive non-blocking preload of frames
   useEffect(() => {
     setIsLoadingDrone(true);
-    let loadedCount = 0;
     const droneFrames = activeDrone.frames;
+    let cancelled = false;
 
-    droneFrames.forEach((src) => {
-      const img = new Image();
-      img.src = assetUrl(src);
-      img.onload = () => {
-        loadedCount += 1;
-        if (loadedCount >= Math.min(8, droneFrames.length)) {
-          setIsLoadingDrone(false);
+    // 1. Immediately preload the first frame so viewer renders right away
+    const firstImg = new Image();
+    firstImg.src = assetUrl(droneFrames[0]);
+    firstImg.onload = firstImg.onerror = () => {
+      if (!cancelled) {
+        setIsLoadingDrone(false);
+      }
+    };
+
+    // 2. Preload remaining frames progressively in background batches
+    let currentBatch = 1;
+    const batchSize = 4;
+    const preloadNextBatch = () => {
+      if (cancelled || currentBatch >= droneFrames.length) return;
+      const nextBatch = droneFrames.slice(currentBatch, currentBatch + batchSize);
+      currentBatch += batchSize;
+
+      nextBatch.forEach((src) => {
+        const img = new Image();
+        img.src = assetUrl(src);
+      });
+
+      if (currentBatch < droneFrames.length) {
+        if ("requestIdleCallback" in window) {
+          (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(preloadNextBatch);
+        } else {
+          setTimeout(preloadNextBatch, 80);
         }
-      };
-      img.onerror = () => {
-        loadedCount += 1;
-        if (loadedCount >= droneFrames.length) {
-          setIsLoadingDrone(false);
-        }
-      };
-    });
+      }
+    };
+
+    if ("requestIdleCallback" in window) {
+      (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(preloadNextBatch);
+    } else {
+      setTimeout(preloadNextBatch, 60);
+    }
 
     setContinuousAngle(0);
     continuousAngleRef.current = 0;
     setZoomLevel(1);
     setPanPosition({ x: 0, y: 0 });
+
+    return () => {
+      cancelled = true;
+    };
   }, [activeDrone.id]);
 
   // Silky 60fps RequestAnimationFrame Animation Loop for Slow Motion Spin & Inertia

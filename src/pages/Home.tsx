@@ -212,9 +212,9 @@ const homeFaqs = [
   {
     q: "How many acres can GoAG drones cover in one hour?",
     pointers: [
-      "Peak Speed: Up to 25 acres / hour",
-      "Agrown-x: 4 acres per battery charge (7 mins/acre)",
-      "Agrown-x Pro: Up to 10 acres on a single battery pack"
+      "Agrown-x: 1 Acre in 7 Minutes (~8.5 Acres / Hour)",
+      "Agrown-x Pro Hexacopter: Up to 10 acres on a single battery pack",
+      "Agrown-Swift 20: Up to 15–20 acres / hour with dual high-flow spray"
     ],
   },
   {
@@ -261,7 +261,7 @@ export default function Home() {
     <div ref={containerRef} className="bg-[#070c08] text-[#f3f4f6] min-h-screen">
       <SEO
         title="GoAG Services | Precision Agricultural Drones Manufacturer Hyderabad"
-        description="Indigenous DGCA-compliant agricultural spraying drones. 25 acres/hour coverage, ₹20 battery cost per acre, 80% Indian content with 2-year warranty."
+        description="High-precision agricultural spraying drones. 1 acre in 7 minutes (~8.5 acres/hour), ₹20 battery cost per acre, 80% Indian content with 2-year warranty."
         canonical="/"
       />
 
@@ -313,11 +313,11 @@ export default function Home() {
           {/* Highlight Pointer Pills */}
           <div className="flex flex-wrap items-center gap-2.5 mb-8">
             {[
-              "25 Acres / Hour Coverage",
+              "1 Acre in 7 Mins (~8.5 Acres / Hr)",
               "30% Chemical Waste Reduction",
               "₹20 / Acre Running Cost",
               "2-Year Full Manufacturer Warranty",
-              "DGCA Type Certified Ready"
+              "DGCA Architecture Ready"
             ].map((pt) => (
               <span
                 key={pt}

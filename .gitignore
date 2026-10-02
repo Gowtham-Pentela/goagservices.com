@@ -33,7 +33,8 @@ playwright/.cache/
 # Large raw CAD media not needed in production build
 goag_website_options.webp
 
-# Ignore raw CAD model files
+# Raw CAD models and local image sources
+Images/
 *.f3z
 *.step
 *.f3d

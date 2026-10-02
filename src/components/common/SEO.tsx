@@ -13,10 +13,12 @@ interface SEOProps {
 
 const DEFAULT_TITLE = "GoAG Services — Turn Every Acre into Profit with Precision Drone Spraying";
 const DEFAULT_DESC =
-  "GoAG Services Private Limited — India's first multipurpose integrated agriculture drone kit. Cover up to 25 acres/hour with pinpoint droplet control, 80% Indian content, ₹20/acre battery cost, and 30% less chemical waste.";
+  "GoAG Services Private Limited — High-precision agricultural spraying drones engineered in Hyderabad. 1 acre in 7 minutes (~8.5 acres/hour), micro-atomized droplet control, 80% Indian content, ₹20/acre battery cost, and 2-year warranty.";
 const DEFAULT_KEYWORDS =
-  "agricultural drone manufacturer India, precision agriculture drone, crop spraying drone Hyderabad, Agrown-x, Agrown-x Pro hexacopter, Agrown-Swift 20, agricultural drone price per acre, FPO drone subsidy, farm drone spraying Telangana, DGCA compliant drone India, paddy spraying drone, sugarcane drone sprayer";
-const SITE_URL = "https://goagdrones.com";
+  "agricultural drone manufacturer India, precision agriculture drone, crop spraying drone Hyderabad, Agrown-x, Agrown-x Pro hexacopter, Agrown-Swift 20, agricultural drone price per acre, FPO drone subsidy, farm drone spraying Telangana, DGCA architecture ready drone India, paddy spraying drone, sugarcane drone sprayer";
+const SITE_URL = typeof window !== "undefined" && window.location.origin.includes("github.io")
+  ? window.location.origin + (import.meta.env.BASE_URL?.replace(/\/$/, "") || "")
+  : "https://goagdrones.com";
 const DEFAULT_IMAGE = "https://goagdrones.com/logo.png";
 
 export default function SEO({

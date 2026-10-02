@@ -1,18 +1,32 @@
+import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import ProductDetail from "./pages/ProductDetail";
-import Manufacturing from "./pages/Manufacturing";
-import BuildDrone from "./pages/BuildDrone";
-import Simulator from "./pages/Simulator";
-import Outreach from "./pages/Outreach";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Drone360Studio from "./pages/Drone360Studio";
+
+// Lazy-loaded routes for code splitting and instant initial page load
+const Home = lazy(() => import("./pages/Home"));
+const Products = lazy(() => import("./pages/Products"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const Manufacturing = lazy(() => import("./pages/Manufacturing"));
+const BuildDrone = lazy(() => import("./pages/BuildDrone"));
+const Simulator = lazy(() => import("./pages/Simulator"));
+const Outreach = lazy(() => import("./pages/Outreach"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Drone360Studio = lazy(() => import("./pages/Drone360Studio"));
+
+// Fallback loader while route chunks stream in
+function PageLoader() {
+  return (
+    <div className="flex items-center justify-center min-h-[60vh]">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-8 h-8 border-2 border-[#f59e0b]/20 border-t-[#f59e0b] rounded-full animate-spin" />
+        <span className="font-mono text-[11px] text-[#9ca3af] tracking-widest">INITIALIZING SUBSYSTEMS...</span>
+      </div>
+    </div>
+  );
+}
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -56,8 +70,9 @@ export default function App() {
   return (
     <Layout>
       <ScrollToTop />
-      <AnimatePresence mode="wait" initial={false}>
-        <Routes location={location} key={location.pathname}>
+      <Suspense fallback={<PageLoader />}>
+        <AnimatePresence mode="wait" initial={false}>
+          <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/products" element={<PageTransition><Products /></PageTransition>} />
           <Route path="/products/:slug" element={<PageTransition><ProductDetail /></PageTransition>} />
@@ -86,6 +101,7 @@ export default function App() {
           } />
         </Routes>
       </AnimatePresence>
+      </Suspense>
     </Layout>
   );
 }

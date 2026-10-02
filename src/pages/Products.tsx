@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, Clock, Zap, Droplets, Shield, ChevronRight, RotateCcw, Check } from "lucide-react";
 import { products, productCategories } from "../data/products";
 import SEO from "../components/common/SEO";
+import { assetUrl } from "../utils/assets";
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -132,7 +133,7 @@ export default function Products() {
               {/* Image Container */}
               <div className="relative overflow-hidden rounded-sm border border-white/15 shadow-2xl" style={{ background: "#050906" }}>
                 <img
-                  src={featured.image}
+                  src={assetUrl(featured.image)}
                   alt={featured.name}
                   className="w-full aspect-[16/10] object-cover opacity-85 hover:scale-105 transition-transform duration-700"
                 />
@@ -241,7 +242,7 @@ export default function Products() {
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-[#050906]">
                   <img
-                    src={product.image}
+                    src={assetUrl(product.image)}
                     alt={product.name}
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                   />
