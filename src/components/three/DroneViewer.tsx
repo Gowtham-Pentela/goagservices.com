@@ -487,7 +487,7 @@ export default function DroneViewer({
 
       {/* Corner labels */}
       <div className="absolute top-3 left-4 text-label-sm text-[#2d3c2d]">
-        GoAG AGRI X10
+        GoAG DRONE SYSTEMS
       </div>
       <div className="absolute bottom-3 left-0 right-0 text-center text-label-sm text-[#2d3c2d]">
         DRAG TO ROTATE · SCROLL TO ZOOM · TOUCH SUPPORTED
