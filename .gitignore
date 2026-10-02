@@ -32,6 +32,7 @@ playwright/.cache/
 
 # Large raw CAD media not needed in production build
 goag_website_options.webp
+assets-src/
 
 # Raw CAD models and local image sources
 Images/
@@ -41,3 +42,10 @@ Images/
 *.STEP
 *.F3Z
 *.F3D
+
+# Temporary test / evaluation outputs
+test_*.py
+test_*.cjs
+test_blend.webp
+test_interpolated.webm
+

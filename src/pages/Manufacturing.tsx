@@ -34,7 +34,7 @@ const howItWorksSteps = [
     subtitle: "Calibrated Zero-Drift Mist",
     pointers: [
       "Micron-calibrated atomizing nozzles",
-      "30% chemical reduction & zero runoff",
+      "Precision targeted spraying & controlled drift",
       "Propeller downwash canopy penetration"
     ]
   },
@@ -56,10 +56,10 @@ export default function Manufacturing() {
   return (
     <div className="min-h-screen" style={{ background: "#070c08" }}>
       <SEO
-        title="How It Works & Drone Manufacturing | GoAG Services Hyderabad"
-        description="Learn how GoAG's precision agricultural drones operate and explore our ISO 9001 certified drone manufacturing plant in Hyderabad, India with 80% Indian indigenous content."
+        title="Manufacturing & Technology | GoAG Services Hyderabad"
+        description="Learn how GoAG's precision agricultural drones operate and explore our drone manufacturing facility in Hyderabad, India with 80% Made in India content."
         keywords="drone manufacturing India, Hyderabad drone factory, agricultural drone engineering, how agricultural drones spray, precision farming workflow, Make in India drones"
-        canonical="/how-it-works"
+        canonical="/manufacturing"
       />
       <div className="h-20" />
 
@@ -85,10 +85,10 @@ export default function Manufacturing() {
 
           <div className="flex flex-wrap items-center justify-center gap-2.5 my-6">
             <span className="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90">
-              • 80% Indigenous Indian Content
+              • 80% Made in India
             </span>
             <span className="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90">
-              • ISO 9001 & DGCA Compliance Ready
+              • DGCA certified Engineering
             </span>
             <span className="px-3.5 py-1.5 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-white/90">
               • Hyderabad Aerospace Facility

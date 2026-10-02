@@ -357,7 +357,7 @@ export default function Drone360Viewer({
                         : "bg-white/5 text-white/70 border-white/10 hover:bg-white/10 hover:text-white"
                     }`}
                   >
-                    <span>{drone.name.replace("Agrown-", "").replace("Greaydon ", "G-")}</span>
+                    <span>{drone.name.replace("Agrown-", "").replace("Graydon ", "G-")}</span>
                     <span
                       className={`text-[9px] px-1.5 py-0.2 rounded font-mono ${
                         isActive ? "bg-black/20 text-black font-bold" : "bg-white/10 text-white/50"
@@ -695,19 +695,19 @@ export default function Drone360Viewer({
                 <div className="flex items-center gap-4">
                   <span className="flex items-center gap-1.5 text-white/80">
                     <ShieldCheck className="w-4 h-4 text-[#22c55e]" />
-                    2-Year Comprehensive Warranty
+                    Up to 2 Years Warranty
                   </span>
                   <span className="flex items-center gap-1.5 text-white/80">
                     <CheckCircle2 className="w-4 h-4 text-[#22c55e]" />
-                    80% Made in India Certified
+                    80% Made in India
                   </span>
                   <span className="flex items-center gap-1.5 text-white/80">
                     <Zap className="w-4 h-4 text-[#f59e0b]" />
-                    DGCA Type Certification Compliant
+                    DGCA certified
                   </span>
                 </div>
                 <div className="text-white/40 text-[11px]">
-                  Official Hyderabad Hub: Plot No 72/P, Kukatpally • +91 98855 89001
+                  Official Hyderabad Hub: Plot No 72/P, Kukatpally Hills • +91 98855 89001
                 </div>
               </div>
             </div>

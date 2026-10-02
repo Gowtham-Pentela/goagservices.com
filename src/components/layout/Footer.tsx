@@ -2,29 +2,29 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Facebook, Mail, Phone, MapPin, Check } from "lucide-react";
 import { assetUrl } from "../../utils/assets";
+import { contactInfo } from "../../content/contact";
 
 const footerLinks = {
   "OUR PRODUCTS": [
-    { label: "Agrown-x (10L Workhorse)", to: "/products/agrown-x" },
-    { label: "Agrown-x Pro (Hexacopter)", to: "/products/agrown-x-pro" },
-    { label: "Agrown-Swift 20 (Transformer)", to: "/products/agrown-swift20" },
-    { label: "EcoGuardian (AI Analytics)", to: "/products/ecoguardian-series" },
+    { label: "Agrown-10X (Medium Class)", to: "/products/agrown-10x" },
+    { label: "Agrown-10X Super Compact", to: "/products/agrown-10x-super-compact" },
+    { label: "Graydon (Multi-Payload)", to: "/products/graydon" },
     { label: "All Products", to: "/products" },
   ],
   COMPANY: [
     { label: "About Us", to: "/about" },
-    { label: "How It Works", to: "/how-it-works" },
+    { label: "Manufacturing", to: "/manufacturing" },
     { label: "Build Your Drone", to: "/build-your-drone" },
     { label: "Our Campaigns & FPOs", to: "/outreach" },
     { label: "Flight Simulator", to: "/simulator" },
     { label: "Contact Us", to: "/contact" },
   ],
-  "CROP USE CASES": [
-    { label: "Rice & Paddy Spraying", to: "/products" },
-    { label: "Sugarcane Canopy Mist", to: "/products" },
-    { label: "Arecanut Palm Care", to: "/products" },
-    { label: "Tea Garden Protection", to: "/products" },
-    { label: "Maize & Orchard Swaths", to: "/products" },
+  APPLICATIONS: [
+    { label: "Agriculture", to: "/products" },
+    { label: "Infrastructure", to: "/products" },
+    { label: "Surveying & Mapping", to: "/products" },
+    { label: "Industrial Operations", to: "/products" },
+    { label: "Public Safety", to: "/products" },
   ],
 };
 
@@ -63,7 +63,7 @@ export default function Footer() {
             <p className="text-[#9ca3af] text-[15px] leading-relaxed mb-6 max-w-md">
               <strong>Built in India and Built for India.</strong>
               <br />
-              Transform every phase of crop care with precision spraying drones, 80% Indian content, 100L single discharge capability, and ₹20/acre battery operating cost.
+              Transform field operations with precision UAV platforms, 80% Made in India, up to 2 years warranty, and ₹20/acre battery operating cost.*
             </p>
             <div className="flex items-center gap-3 mb-8">
               {socialLinks.map(({ Icon, href, label, id }) => (
@@ -84,22 +84,22 @@ export default function Footer() {
             {/* Official contact */}
             <div className="space-y-3 max-w-md">
               <a
-                href="mailto:go.agriculturalservices@gmail.com"
+                href={contactInfo.emailHref}
                 className="flex items-center gap-2.5 text-[#9ca3af] text-[14px] hover:text-[#22c55e] transition-colors"
               >
                 <Mail className="w-4 h-4 text-[#22c55e] flex-shrink-0" />
-                <span>go.agriculturalservices@gmail.com</span>
+                <span>{contactInfo.email}</span>
               </a>
               <a
-                href="tel:+919885589001"
+                href={contactInfo.phones[0].href}
                 className="flex items-center gap-2.5 text-[#9ca3af] text-[14px] hover:text-[#22c55e] transition-colors"
               >
                 <Phone className="w-4 h-4 text-[#fbbf24] flex-shrink-0" />
-                <span>+91 98855 89001</span>
+                <span>{contactInfo.phones[0].display}</span>
               </a>
               <div className="flex items-start gap-2.5 text-[#9ca3af] text-[14px]">
                 <MapPin className="w-4 h-4 text-[#22c55e] mt-1 flex-shrink-0" />
-                <span>Plot No: 72/P, 3rd Floor Rajiv Gandhi Nagar, Kukatpally, P & B Heights, Industrial Development Area, Hyderabad, 500072 India</span>
+                <span>{contactInfo.address.fullFormatted}</span>
               </div>
             </div>
           </div>

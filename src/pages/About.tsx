@@ -149,11 +149,11 @@ export default function About() {
                 </div>
                 <div className="flex items-start gap-2.5">
                   <Check className="w-4 h-4 text-[#fbbf24] flex-shrink-0 mt-0.5" />
-                  <span>30% chemical reduction & zero manual pesticide toxicity exposure</span>
+                  <span>Micro-atomized droplet control & zero manual pesticide toxicity exposure</span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <Check className="w-4 h-4 text-[#fbbf24] flex-shrink-0 mt-0.5" />
-                  <span>Accessible, farmer-friendly flight automation backed by 2-year warranty</span>
+                  <span>Accessible, farmer-friendly flight automation backed by up to 2 years warranty</span>
                 </div>
               </div>
             </div>

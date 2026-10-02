@@ -410,7 +410,7 @@ export default function Outreach() {
                 title: "Why Smart Drones Are Changing Farming Forever",
                 date: "Jul 25, 2025",
                 tag: "AGRITECH TRENDS",
-                desc: "Reducing chemical expenditure by 30% while shielding human operators from hazardous pesticide exposure.",
+                desc: "Targeting precision micro-droplet application while shielding human operators from hazardous pesticide exposure.",
               },
             ].map((art) => (
               <div

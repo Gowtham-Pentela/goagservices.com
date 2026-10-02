@@ -21,7 +21,7 @@ export const timelineMilestones = [
     year: "2021",
     title: "DGCA Certified",
     description:
-      "Received DGCA type certification. Became one of India's first indigenously certified drone manufacturers.",
+      "Achieved DGCA certified operations and indigenous drone platform standards.",
   },
   {
     year: "2022",

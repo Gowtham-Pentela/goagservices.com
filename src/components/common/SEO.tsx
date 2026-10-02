@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { contactInfo } from "../../content/contact";
 
 interface SEOProps {
   title?: string;
@@ -11,27 +12,26 @@ interface SEOProps {
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
-const DEFAULT_TITLE = "GoAG Services — Turn Every Acre into Profit with Precision Drone Spraying";
+const DEFAULT_TITLE = "GoAG Services — Engineered in India. Built for Real Missions.";
 const DEFAULT_DESC =
-  "GoAG Services Private Limited — High-precision agricultural spraying drones engineered in Hyderabad. 1 acre in 7 minutes (~8.5 acres/hour), micro-atomized droplet control, 80% Indian content, ₹20/acre battery cost, and 2-year warranty.";
+  "GoAG Services Private Limited — Indian UAV Manufacturer of Agricultural Drones, Multi-Payload Systems, and Custom Unmanned Solutions engineered in Hyderabad. 80% Made in India with up to 2 years warranty.";
 const DEFAULT_KEYWORDS =
-  "agricultural drone manufacturer India, precision agriculture drone, crop spraying drone Hyderabad, Agrown-x, Agrown-x Pro hexacopter, Agrown-Swift 20, agricultural drone price per acre, FPO drone subsidy, farm drone spraying Telangana, DGCA architecture ready drone India, paddy spraying drone, sugarcane drone sprayer";
-const SITE_URL = typeof window !== "undefined" && window.location.origin.includes("github.io")
-  ? window.location.origin + (import.meta.env.BASE_URL?.replace(/\/$/, "") || "")
-  : "https://goagdrones.com";
-const DEFAULT_IMAGE = "https://goagdrones.com/logo.png";
+  "agricultural drone manufacturer India, precision agriculture drone, crop spraying drone Hyderabad, Agrown-10X, Agrown-10X Super Compact, Graydon multi-payload drone, Made in India drone, DGCA certified drone Hyderabad";
+
+const SITE_URL = import.meta.env.VITE_SITE_URL || "";
+const IS_NOINDEX = import.meta.env.VITE_NOINDEX === "true";
+const BASE_PATH = import.meta.env.BASE_URL || "/";
 
 export default function SEO({
   title = DEFAULT_TITLE,
   description = DEFAULT_DESC,
   keywords = DEFAULT_KEYWORDS,
   canonical,
-  ogImage = DEFAULT_IMAGE,
+  ogImage = `${BASE_PATH}images/logo.png`,
   ogType = "website",
   schema,
 }: SEOProps) {
   const { pathname } = useLocation();
-  const currentUrl = canonical ? `${SITE_URL}${canonical}` : `${SITE_URL}${pathname}`;
 
   useEffect(() => {
     // 1. Update Title
@@ -51,16 +51,15 @@ export default function SEO({
     // Standard Meta
     setMeta("name", "description", description);
     setMeta("name", "keywords", keywords);
-    setMeta("name", "robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
-    setMeta("name", "author", "GoAG Services Private Limited");
+    setMeta("name", "robots", IS_NOINDEX ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+    setMeta("name", "author", contactInfo.companyName);
 
     // Open Graph
     setMeta("property", "og:title", title);
     setMeta("property", "og:description", description);
-    setMeta("property", "og:url", currentUrl);
     setMeta("property", "og:image", ogImage);
     setMeta("property", "og:type", ogType);
-    setMeta("property", "og:site_name", "GoAG Services");
+    setMeta("property", "og:site_name", contactInfo.companyName);
     setMeta("property", "og:locale", "en_IN");
 
     // Twitter Card
@@ -69,14 +68,20 @@ export default function SEO({
     setMeta("name", "twitter:description", description);
     setMeta("name", "twitter:image", ogImage);
 
-    // Canonical link
+    // Canonical link handling: per owner instructions, only set when VITE_SITE_URL is defined
     let canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (!canonicalLink) {
-      canonicalLink = document.createElement("link");
-      canonicalLink.setAttribute("rel", "canonical");
-      document.head.appendChild(canonicalLink);
+    if (SITE_URL) {
+      const canonicalUrl = canonical ? `${SITE_URL}${canonical}` : `${SITE_URL}${pathname}`;
+      if (!canonicalLink) {
+        canonicalLink = document.createElement("link");
+        canonicalLink.setAttribute("rel", "canonical");
+        document.head.appendChild(canonicalLink);
+      }
+      canonicalLink.setAttribute("href", canonicalUrl);
+      setMeta("property", "og:url", canonicalUrl);
+    } else if (canonicalLink) {
+      canonicalLink.remove();
     }
-    canonicalLink.setAttribute("href", currentUrl);
 
     // Schema.org Structured Data
     const scriptId = "page-structured-data";
@@ -92,7 +97,7 @@ export default function SEO({
     } else if (scriptTag) {
       scriptTag.remove();
     }
-  }, [title, description, keywords, currentUrl, ogImage, ogType, schema]);
+  }, [title, description, keywords, canonical, ogImage, ogType, schema, pathname]);
 
   return null;
 }

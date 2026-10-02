@@ -8,11 +8,11 @@ import SEO from "../components/common/SEO";
 import { assetUrl } from "../utils/assets";
 
 const boundaryMetrics = [
-  { value: "100 L", label: "SINGLE DISCHARGE", pointer: "Minimizes refill runs for expansive acreage" },
-  { value: "₹20", label: "BATTERY / ACRE", pointer: "Ultra-low operating electricity cost" },
-  { value: "₹50", label: "MAINTENANCE / ACRE", pointer: "Designed for affordable field upkeep" },
-  { value: "2 Years", label: "FULL WARRANTY", pointer: "Comprehensive manufacturer peace of mind" },
-  { value: "80%", label: "INDIAN CONTENT", pointer: "Indigenously engineered in Hyderabad" },
+  { value: "3+", label: "PLATFORMS", pointer: "Purpose-built agricultural & utility systems" },
+  { value: "₹20", label: "BATTERY / ACRE*", pointer: "Ultra-low operating electricity cost" },
+  { value: "₹50", label: "MAINTENANCE / ACRE*", pointer: "Designed for affordable field upkeep" },
+  { value: "Up to 2 Yrs", label: "WARRANTY", pointer: "Verified manufacturer warranty" },
+  { value: "80%", label: "MADE IN INDIA", pointer: "Indigenously engineered in Hyderabad" },
 ];
 
 const cropList = [
@@ -25,7 +25,7 @@ const cropList = [
       "Zero field-hand fatigue or hazard",
       "Uniform foliar disease protection"
     ],
-    highlight: "7 mins / acre coverage"
+    highlight: "Precision foliar coverage"
   },
   {
     name: "Arecanut",
@@ -89,57 +89,57 @@ const cropList = [
     pointers: [
       "Tree-by-tree variable flow adjustment",
       "360° fruit cluster coverage",
-      "30% reduction in chemical runoff"
+      "Targeted micro-droplet canopy deposition"
     ],
     highlight: "Tree-aware variable flow"
   },
 ];
 
 const impactStats = [
-  { value: "500K+", label: "ACRES COVERED", pointer: "Proven across 20+ agricultural states" },
-  { value: "98%", label: "SPRAY PRECISION", pointer: "Targeted droplet swath control" },
-  { value: "30%", label: "CHEMICAL REDUCTION", pointer: "Zero runoff and maximum absorption" },
-  { value: "5M+", label: "LITERS DISPERSED", pointer: "Zero human toxic chemical exposure" },
+  { value: "3+", label: "DRONE PLATFORMS", pointer: "Purpose-built agricultural & utility systems" },
+  { value: "80%", label: "MADE IN INDIA", pointer: "Indigenously engineered in Hyderabad" },
+  { value: "Up to 2 Yrs", label: "WARRANTY", pointer: "Manufacturer warranty on all platforms" },
+  { value: "100%", label: "IN-HOUSE BUILD", pointer: "Complete chassis and electronics assembly" },
 ];
 
 const featuredDrones = [
   {
-    name: "Agrown-x",
-    slug: "agrown-x",
+    name: "Agrown-10X",
+    slug: "agrown-10x",
     category: "Precision Agriculture",
-    badge: "WORKHORSE",
-    image: "/10-spraying.jpeg",
+    badge: "MEDIUM CLASS",
+    image: "/drones-360/10x-sprayer/smooth_01.webp",
     pointers: [
       "10 Litres Quick-Release Tank",
-      "4 Acres per Battery Pack",
+      "10 kg Granular Hopper Capability",
       "Aerospace Folding Carbon Arms",
       "RTK Centimeter Guidance"
     ],
   },
   {
-    name: "Agrown-x Pro",
-    slug: "agrown-x-pro",
-    category: "Broad-Acre Hexacopter",
-    badge: "HEXACOPTER",
-    image: "/solar-cleaning.jpeg",
+    name: "Agrown-10X Super Compact",
+    slug: "agrown-10x-super-compact",
+    category: "Compact Agriculture",
+    badge: "SMALL CLASS",
+    image: "/drones-360/5x-sprayer/smooth_01.webp",
     pointers: [
-      "16–20 Litres Heavy Payload",
-      "10-Acre Sprint per Charge",
-      "Farm-Tough Metal Airframe",
-      "360° Obstacle Avoidance Radar"
+      "5 Litres Compact Sprayer",
+      "Single-Operator Rapid Deployment",
+      "Farm-Tough Metal DNA Chassis",
+      "Quick-Swap Intelligent Battery"
     ],
   },
   {
-    name: "Agrown-Swift 20",
-    slug: "agrown-swift20",
-    category: "Multipurpose Hybrid",
-    badge: "HEAVY PAYLOAD",
-    image: "/high-building-cleaning.jpeg",
+    name: "Graydon",
+    slug: "graydon",
+    category: "Multi-Payload Utility",
+    badge: "MULTI-PAYLOAD",
+    image: "/drones-360/greaydon-base/smooth_01.webp",
     pointers: [
-      "20–30 Litres Transformer Kit",
-      "Air-to-Ground Rover Kit Compatible",
-      "Quick Swappable Electronics",
-      "2-Year Full Manufacturer Warranty"
+      "25–30 kg Industrial Payload Muscle",
+      "India's First 360° Obstacle-Sensing",
+      "Universal Quick-Mount Payload Rail",
+      "Up to 2 Years Warranty"
     ],
   },
 ];
@@ -159,7 +159,7 @@ const componentDetails: Record<string, { title: string; spec: string; pointers: 
     pointers: [
       "130–250 micron atomized droplets",
       "Zero-drip anti-leak shutoff valves",
-      "30% reduction in chemical waste"
+      "Calibrated atomized droplet deposition"
     ],
   },
   "Road-Ready Frame": {
@@ -204,25 +204,25 @@ const homeFaqs = [
   {
     q: "What is the operating cost per acre with GoAG drones?",
     pointers: [
-      "Battery Charging: ₹20 / acre average",
-      "Routine Maintenance: ₹50 / acre scheduled cap",
-      "Chemical Savings: ~30% reduction via micro-atomization"
+      "Battery Charging: ₹20 / acre average (typical values, vary with crop & conditions)",
+      "Routine Maintenance: ₹50 / acre scheduled upkeep",
+      "Droplet Control: Micro-atomization for targeted canopy deposition"
     ],
   },
   {
-    q: "How many acres can GoAG drones cover in one hour?",
+    q: "What product platforms does GoAG manufacture?",
     pointers: [
-      "Agrown-x: 1 Acre in 7 Minutes (~8.5 Acres / Hour)",
-      "Agrown-x Pro Hexacopter: Up to 10 acres on a single battery pack",
-      "Agrown-Swift 20: Up to 15–20 acres / hour with dual high-flow spray"
+      "Agrown-10X: Purpose-built 10L spraying and 10kg spreading medium platform",
+      "Agrown-10X Super Compact: Ultra-portable small class agricultural drone",
+      "Graydon: Heavy-lift multi-payload utility platform with 360° obstacle sensing"
     ],
   },
   {
     q: "Are GoAG drones eligible for government subsidies and FPO schemes?",
     pointers: [
       "Subsidies: Eligible under SMAM, Sub-Mission on Agri Mechanization",
-      "FPO Benefits: Early-bird allotments, custom co-branding, pilot training",
-      "Make in India: 80% indigenous content certified in Hyderabad"
+      "FPO Benefits: Dedicated allotments, custom co-branding, pilot training",
+      "Make in India: 80% Made in India engineered in Hyderabad"
     ],
   },
   {
@@ -236,9 +236,9 @@ const homeFaqs = [
   {
     q: "What warranty and spare parts support is provided?",
     pointers: [
-      "Warranty: 2-year full manufacturer warranty",
-      "Hyderabad Hub: Direct manufacturer supply with 0 import delays",
-      "Service SLA: 48-hour technician and spare dispatch nationwide"
+      "Warranty: Up to 2 years manufacturer warranty",
+      "Hyderabad Hub: Direct manufacturer supply with local spare inventory",
+      "DGCA certified operations and field deployment engineering"
     ],
   },
 ];
@@ -260,8 +260,8 @@ export default function Home() {
   return (
     <div ref={containerRef} className="bg-[#070c08] text-[#f3f4f6] min-h-screen">
       <SEO
-        title="GoAG Services | Precision Agricultural Drones Manufacturer Hyderabad"
-        description="High-precision agricultural spraying drones. 1 acre in 7 minutes (~8.5 acres/hour), ₹20 battery cost per acre, 80% Indian content with 2-year warranty."
+        title="GoAG Services | Precision UAV & Drone Manufacturer Hyderabad"
+        description="Indian UAV manufacturer of agricultural spraying drones, multi-payload utility drones, and custom unmanned systems. 80% Made in India with up to 2 years warranty."
         canonical="/"
       />
 
@@ -313,11 +313,11 @@ export default function Home() {
           {/* Highlight Pointer Pills */}
           <div className="flex flex-wrap items-center gap-2.5 mb-8">
             {[
-              "1 Acre in 7 Mins (~8.5 Acres / Hr)",
-              "30% Chemical Waste Reduction",
-              "₹20 / Acre Running Cost",
-              "2-Year Full Manufacturer Warranty",
-              "DGCA Architecture Ready"
+              "80% Made in India",
+              "India's First 360° Obstacle-Sensing",
+              "₹20 / Acre Running Cost*",
+              "Up to 2 Years Warranty",
+              "DGCA certified"
             ].map((pt) => (
               <span
                 key={pt}

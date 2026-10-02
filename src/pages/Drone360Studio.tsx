@@ -20,7 +20,7 @@ export default function Drone360Studio() {
     <>
       <SEO
         title="360° Interactive Drone Studio | GoAG Services Hyderabad"
-        description="Inspect GoAG's indigenous agricultural & industrial drones in high-definition 360-degree interactive 3D. Rotate, zoom, and inspect specifications for Agrown-10X, 5X, and Greaydon heavy-lift airframes."
+        description="Inspect GoAG's indigenous agricultural & industrial drones in high-definition 360-degree interactive 3D. Rotate, zoom, and inspect specifications for Agrown-10X, Agrown-10X Super Compact, and Graydon heavy-lift platforms."
         canonical="/drone-360"
         keywords="360 drone view, agricultural drone 3D, GoAG Agrown 10X 360, drone interactive viewer, Hyderabad drone manufacturer"
       />

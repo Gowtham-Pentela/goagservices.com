@@ -30,25 +30,26 @@ test.describe('GoAG Aerospace & Precision Drones Website E2E Tests', () => {
     await expect(page.getByText('Fast-Charging Smart Battery Pack')).toBeVisible();
   });
 
-  test('2. Products Page & Navigation', async ({ page }) => {
+  test('2. Products Page & Navigation with Canonical Names', async ({ page }) => {
     await page.goto('/products');
 
     await expect(page.getByText('FULL FLEET CATALOGUE').first()).toBeVisible();
 
-    // Product card check for Agrown-x
-    const agriCard = page.getByRole('heading', { name: 'Agrown-x' }).first();
-    await expect(agriCard).toBeVisible();
+    // Canonical product headings
+    await expect(page.getByRole('heading', { name: 'Agrown-10X' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Agrown-10X Super Compact' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Graydon' }).first()).toBeVisible();
 
     // Click product detail link
-    const detailsLink = page.locator('a[href*="/products/agrown-x"]').first();
+    const detailsLink = page.locator('a[href*="/products/agrown-10x"]').first();
     await detailsLink.click();
-    await expect(page).toHaveURL(/\/products\/agrown-x/);
+    await expect(page).toHaveURL(/\/products\/agrown-10x/);
   });
 
-  test('3. Product Detail Page - 3D Viewer & Specification Tabs', async ({ page }) => {
-    await page.goto('/products/agrown-x');
-
-    await expect(page.getByRole('heading', { name: 'Agrown-x' })).toBeVisible();
+  test('3. Product Detail Page & Legacy Slug Redirections', async ({ page }) => {
+    // Direct canonical visit
+    await page.goto('/products/agrown-10x');
+    await expect(page.getByRole('heading', { name: 'Agrown-10X' })).toBeVisible();
 
     // Spec tabs check via explicit tab IDs
     const overviewTab = page.locator('#tab-overview');
@@ -58,13 +59,25 @@ test.describe('GoAG Aerospace & Precision Drones Website E2E Tests', () => {
 
     await specsTab.click();
     await expect(page.getByText('FULL TECHNICAL SPECIFICATIONS').first()).toBeVisible();
+
+    // Legacy slug redirect: /products/agrown-x -> /products/agrown-10x
+    await page.goto('/products/agrown-x');
+    await expect(page).toHaveURL(/\/products\/agrown-10x/);
+
+    // Legacy slug redirect: /products/agrown-x-pro -> /products/agrown-10x-super-compact
+    await page.goto('/products/agrown-x-pro');
+    await expect(page).toHaveURL(/\/products\/agrown-10x-super-compact/);
+
+    // Legacy slug redirect: /products/greaydon-base -> /products/graydon
+    await page.goto('/products/greaydon-base');
+    await expect(page).toHaveURL(/\/products\/graydon/);
   });
 
   test('4. Manufacturing Page - Stage Grid & Certifications', async ({ page }) => {
     await page.goto('/manufacturing');
 
     await expect(page.getByText('CUTTING-EDGE SOLUTIONS FOR EVERY TYPE OF CROP')).toBeVisible();
-    await expect(page.getByText('80% Indigenous Indian Content').first()).toBeVisible();
+    await expect(page.getByText('80% Made in India').first()).toBeVisible();
   });
 
   test('5. Build Drone Configurator - Quote Modal with Customer Info & Flight Simulator CTA', async ({ page }) => {

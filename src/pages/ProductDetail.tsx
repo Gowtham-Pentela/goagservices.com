@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft, ChevronRight, Check, RotateCcw } from "lucide-react";
 import DroneViewer from "../components/three/DroneViewer";
-import { products } from "../data/products";
+import { products, getProductBySlug, resolveProductSlug } from "../data/products";
 import SEO from "../components/common/SEO";
 
 const tabs = ["OVERVIEW", "SPECIFICATIONS", "ENGINEERING", "PERFORMANCE", "PAYLOADS", "SAFETY", "FIELD RESULTS", "SUPPORT"];
@@ -17,8 +17,15 @@ const productDetailHotspots = [
 ];
 
 export default function ProductDetail() {
-  const { slug } = useParams<{ slug: string }>();
-  const product = products.find((p) => p.slug === slug) || products[0];
+  const { slug = "" } = useParams<{ slug: string }>();
+  const canonicalSlug = resolveProductSlug(slug);
+
+  // If visiting an alias slug, redirect cleanly to canonical slug
+  if (slug && slug !== canonicalSlug) {
+    return <Navigate to={`/products/${canonicalSlug}`} replace />;
+  }
+
+  const product = getProductBySlug(canonicalSlug) || products[0];
   const [activeTab, setActiveTab] = useState("OVERVIEW");
   const [quoteSubmitted, setQuoteSubmitted] = useState(false);
   const [showQuoteModal, setShowQuoteModal] = useState(false);
@@ -32,7 +39,7 @@ export default function ProductDetail() {
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": `${product.name} — Agricultural Drone`,
+    "name": `${product.name} — UAV Platform`,
     "description": product.description,
     "image": product.image,
     "brand": {
@@ -47,7 +54,7 @@ export default function ProductDetail() {
       "@type": "Offer",
       "priceCurrency": "INR",
       "availability": "https://schema.org/InStock",
-      "url": `https://goagdrones.com/products/${product.slug}`
+      "url": `/products/${product.slug}`
     }
   };
 
@@ -55,7 +62,7 @@ export default function ProductDetail() {
     <div className="min-h-screen" style={{ background: "#070c08" }}>
       <SEO
         title={`${product.name} | ${product.tagline} — GoAG Services`}
-        description={`${product.name}: ${product.description} Built in India with 2-year warranty, ₹20 battery cost per acre, and DGCA compliant engineering.`}
+        description={`${product.name}: ${product.description} 80% Made in India with up to 2 years warranty and DGCA certified engineering.`}
         keywords={`${product.name}, ${product.tagline}, agricultural drone, crop sprayer drone, ${product.category} drone India, GoAG Hyderabad`}
         canonical={`/products/${product.slug}`}
         schema={productSchema}
@@ -288,7 +295,7 @@ export default function ProductDetail() {
                       </div>
                       <div>
                         <div className="text-label text-[#9ca3af] mb-1">DGCA COMPLIANCE</div>
-                        <div className="text-[#22c55e] text-[16.5px] font-bold">Type Certified</div>
+                        <div className="text-[#22c55e] text-[16.5px] font-bold">DGCA certified</div>
                       </div>
                     </div>
                   </div>

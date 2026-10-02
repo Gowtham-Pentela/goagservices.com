@@ -32,7 +32,7 @@ export default function Products() {
         "name": p.name,
         "description": p.description,
         "image": p.image,
-        "url": `https://goagdrones.com/products/${p.slug}`,
+        "url": `/products/${p.slug}`,
         "brand": {
           "@type": "Brand",
           "name": "GoAG Services"
@@ -41,7 +41,7 @@ export default function Products() {
           "@type": "Offer",
           "priceCurrency": "INR",
           "availability": "https://schema.org/InStock",
-          "url": `https://goagdrones.com/products/${p.slug}`
+          "url": `/products/${p.slug}`
         }
       }
     }))
@@ -50,9 +50,9 @@ export default function Products() {
   return (
     <div className="min-h-screen" style={{ background: "#070c08" }}>
       <SEO
-        title="Our Drone Fleet — Agrown-x, Agrown-x Pro & Agrown-Swift 20 | GoAG"
-        description="Explore GoAG's indigenous agricultural drone systems. From the 10L Agrown-x workhorse to the 10-acre hexacopter Agrown-x Pro and 20–30L Agrown-Swift 20 transformer kit."
-        keywords="Agrown-x drone, Agrown-x Pro hexacopter, Agrown-Swift 20, agricultural drone fleet, spraying drones India, heavy payload agricultural drone, mapping drone Hyderabad"
+        title="Our Drone Fleet — Agrown-10X, Super Compact & Graydon | GoAG Services"
+        description="Explore GoAG's indigenous UAV platforms: the medium-class Agrown-10X workhorse, the portable Agrown-10X Super Compact, and the multi-payload Graydon platform."
+        keywords="Agrown-10X drone, Agrown-10X Super Compact, Graydon multi-payload drone, agricultural drone fleet, spraying drones India, heavy payload drone Hyderabad"
         canonical="/products"
         schema={productListSchema}
       />
