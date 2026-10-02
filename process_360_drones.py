@@ -17,7 +17,6 @@ DRONE_CONFIGS = [
         "specs": {
             "capacity": "10 Litres",
             "sprayWidth": "4 - 6 Metres",
-            "efficiency": "1 Acre in 7 Minutes",
             "batteryCost": "₹20 / Acre",
             "maintenanceCost": "₹50 / Acre",
             "flightTime": "18 - 22 Mins",

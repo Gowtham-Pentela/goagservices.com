@@ -267,7 +267,7 @@ export default function ProductDetail() {
                 <div className="border border-white/10 p-10 rounded-sm bg-[#0e1610] shadow-xl">
                   <h2 className="text-label text-[#22c55e] mb-4">{activeTab} ARCHITECTURE</h2>
                   <p className="text-[#9ca3af] text-[17.5px] leading-relaxed mb-8">
-                    Comprehensive {activeTab.toLowerCase()} documentation for the {product.name} is compiled directly from our Hyderabad flight testing facility and ISO 9001 assembly lines.
+                    Detailed {activeTab.toLowerCase()} documentation for the {product.name} is compiled directly from our Hyderabad flight testing facility and precision manufacturing lines.
                   </p>
                   <div className="space-y-4 mb-10">
                     {product.highlights.map((h, i) => (
